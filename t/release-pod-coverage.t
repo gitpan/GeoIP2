@@ -1,0 +1,42 @@
+#!/usr/bin/perl
+
+BEGIN {
+  unless ($ENV{RELEASE_TESTING}) {
+    require Test::More;
+    Test::More::plan(skip_all => 'these tests are for release candidate testing');
+  }
+}
+
+
+use strict;
+use warnings;
+
+use Pod::Coverage::Moose 0.02;
+use Test::More;
+use Test::Pod::Coverage 1.04;
+
+my %trustme = (
+);
+
+# This is a stripped down version of all_pod_coverage_ok which lets us
+# vary the trustme parameter per module.
+my @modules = grep { ! /^GeoIP2::(?:Role|Types)/ } all_modules();
+
+for my $module ( sort @modules ) {
+    my $trustme = [];
+
+    if ( $trustme{$module} ) {
+        my $methods = join '|', @{ $trustme{$module} };
+        $trustme = [qr/^(?:$methods)$/];
+    }
+
+    pod_coverage_ok(
+        $module, {
+            coverage_class => 'Pod::Coverage::Moose',
+            trustme        => $trustme,
+        },
+        "Pod coverage for $module"
+    );
+}
+
+done_testing();
