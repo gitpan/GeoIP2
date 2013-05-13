@@ -1,6 +1,6 @@
 package GeoIP2::Record::Traits;
 {
-  $GeoIP2::Record::Traits::VERSION = '0.0100';
+  $GeoIP2::Record::Traits::VERSION = '0.0200';
 }
 
 use strict;
@@ -79,15 +79,15 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 0.0100
+version 0.0200
 
 =head1 SYNOPSIS
 
   use 5.008;
 
-  use GeoIP2::Webservice::Client;
+  use GeoIP2::WebService::Client;
 
-  my $client = GeoIP2::Webservice::Client->new(
+  my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
   );

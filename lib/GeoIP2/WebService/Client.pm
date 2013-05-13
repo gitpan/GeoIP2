@@ -1,6 +1,6 @@
-package GeoIP2::Webservice::Client;
+package GeoIP2::WebService::Client;
 {
-  $GeoIP2::Webservice::Client::VERSION = '0.0100';
+  $GeoIP2::WebService::Client::VERSION = '0.0200';
 }
 
 use 5.008;
@@ -11,7 +11,7 @@ use warnings;
 use Data::Validate::IP qw( is_public_ipv4 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::HTTP;
-use GeoIP2::Error::Webservice;
+use GeoIP2::Error::WebService;
 use GeoIP2::Model::City;
 use GeoIP2::Model::CityISPOrg;
 use GeoIP2::Model::Country;
@@ -253,7 +253,7 @@ sub _handle_4xx_status {
         );
     }
 
-    GeoIP2::Error::Webservice->throw(
+    GeoIP2::Error::WebService->throw(
         message => delete $body->{error},
         %{$body},
         http_status => $status,
@@ -302,7 +302,7 @@ sub _build_ua {
 
 1;
 
-# ABSTRACT: Perl API for the GeoIP2 Precision webservice end points
+# ABSTRACT: Perl API for the GeoIP2 Precision web service end points
 
 __END__
 
@@ -310,19 +310,19 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Webservice::Client - Perl API for the GeoIP2 Precision webservice end points
+GeoIP2::WebService::Client - Perl API for the GeoIP2 Precision web service end points
 
 =head1 VERSION
 
-version 0.0100
+version 0.0200
 
 =head1 SYNOPSIS
 
   use 5.008;
 
-  use GeoIP2::Webservice::Client;
+  use GeoIP2::WebService::Client;
 
-  my $client = GeoIP2::Webservice::Client->new(
+  my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
   );
@@ -370,7 +370,7 @@ If the request fails, the client class throws an exception.
 
 This class has a single constructor method:
 
-=head2 GeoIP2::Webservice::Client->new()
+=head2 GeoIP2::WebService::Client->new()
 
 This method creates a new client object. It accepts the following arguments:
 
@@ -500,9 +500,9 @@ http://dev.maxmind.com/geoip/geoip2/web-services for the GeoIP2 Precision web se
 docs.
 
 If the web service returns an explicit error document, this is thrown as a
-L<GeoIP2::Error::Webservice> exception object. If some other sort of error
+L<GeoIP2::Error::WebService> exception object. If some other sort of error
 occurs, this is thrown as a L<GeoIP2::Error::HTTP> object. The difference is
-that the webservice error includes an error message and error code delivered
+that the web service error includes an error message and error code delivered
 by the web service. The latter is thrown when some sort of unanticipated error
 occurs, such as the web service returning a 500 or an invalid error document.
 

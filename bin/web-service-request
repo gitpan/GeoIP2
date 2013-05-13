@@ -9,7 +9,7 @@ use lib 'lib';
 
 use Data::Dumper;
 use Getopt::Long;
-use GeoIP2::Webservice::Client;
+use GeoIP2::WebService::Client;
 use Try::Tiny;
 
 sub main {
@@ -36,7 +36,7 @@ sub main {
 
     my $service = delete $opts{service} // 'country';
 
-    unless ( GeoIP2::Webservice::Client->can($service) ) {
+    unless ( GeoIP2::WebService::Client->can($service) ) {
         _help("The service you asked for ($service) does not exist.");
         exit 1;
     }
@@ -47,7 +47,7 @@ sub main {
         delete $opts{$k} unless defined $opts{$k};
     }
 
-    my $client = GeoIP2::Webservice::Client->new(%opts);
+    my $client = GeoIP2::WebService::Client->new(%opts);
 
     my $model;
     try {
@@ -85,9 +85,9 @@ sub _help {
     print "\n** $error\n\n" if $error;
 
     print <<'EOF';
-webservice-request --user-id [id] --license-key [key] --ip-address [ip]
+web-service-request --user-id [id] --license-key [key] --ip-address [ip]
 
-  This script will query the MaxMind GeoIP webservice for information about
+  This script will query the MaxMind GeoIP web service for information about
   the given IP address.
 
   It accepts the following options:

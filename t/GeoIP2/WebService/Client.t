@@ -4,7 +4,7 @@ use warnings;
 use Test::Fatal;
 use Test::More 0.88;
 
-use GeoIP2::Webservice::Client;
+use GeoIP2::WebService::Client;
 use HTTP::Status qw( status_message );
 use JSON;
 
@@ -92,7 +92,7 @@ my $ua = Mock::LWP::UserAgent->new(
 );
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -155,7 +155,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -168,7 +168,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -189,7 +189,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -198,8 +198,8 @@ my $ua = Mock::LWP::UserAgent->new(
     my $e = exception { $client->country( ip => '1.2.3.6' ) };
     isa_ok(
         $e,
-        'GeoIP2::Error::Webservice',
-        'exception thrown when webservice returns a 4xx error'
+        'GeoIP2::Error::WebService',
+        'exception thrown when web service returns a 4xx error'
     );
 
     is(
@@ -222,7 +222,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -232,7 +232,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 4xx error without a body'
+        'exception thrown when web service returns a 4xx error without a body'
     );
 
     like(
@@ -243,7 +243,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -253,7 +253,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 4xx error with a JSON body but no code and error keys'
+        'exception thrown when web service returns a 4xx error with a JSON body but no code and error keys'
     );
 
     like(
@@ -264,7 +264,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -274,7 +274,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 4xx error with a non-JSON body'
+        'exception thrown when web service returns a 4xx error with a non-JSON body'
     );
 
     like(
@@ -285,7 +285,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -295,7 +295,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 5xx error'
+        'exception thrown when web service returns a 5xx error'
     );
 
     like(
@@ -306,7 +306,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -316,7 +316,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 3xx error'
+        'exception thrown when web service returns a 3xx error'
     );
 
     like(
@@ -358,7 +358,7 @@ my $ua = Mock::LWP::UserAgent->new(
         }
     );
 
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -369,15 +369,15 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    local $GeoIP2::Webservice::Client::VERSION = 42;
-    my $client = GeoIP2::Webservice::Client->new(
+    local $GeoIP2::WebService::Client::VERSION = 42;
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
     );
 
     like(
         $client->ua()->agent(),
-        qr/\QGeoIP2::Webservice::Client v42/,
+        qr/\QGeoIP2::WebService::Client v42/,
         'user agent includes client package and version'
     );
 
@@ -397,7 +397,7 @@ my $ua = Mock::LWP::UserAgent->new(
 }
 
 {
-    my $client = GeoIP2::Webservice::Client->new(
+    my $client = GeoIP2::WebService::Client->new(
         user_id     => 42,
         license_key => 'abcdef123456',
         ua          => $ua,
@@ -407,7 +407,7 @@ my $ua = Mock::LWP::UserAgent->new(
     isa_ok(
         $e,
         'GeoIP2::Error::HTTP',
-        'exception thrown when webservice returns a 406 error'
+        'exception thrown when web service returns a 406 error'
     );
 
     like(

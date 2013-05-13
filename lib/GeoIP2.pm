@@ -1,6 +1,6 @@
 package GeoIP2;
 {
-  $GeoIP2::VERSION = '0.0100';
+  $GeoIP2::VERSION = '0.0200';
 }
 
 use 5.008;
@@ -19,7 +19,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services
 
 =head1 VERSION
 
-version 0.0100
+version 0.0200
 
 =head1 DESCRIPTION
 
@@ -33,7 +33,7 @@ In the future, this distribution will also provide the same API for the GeoIP2
 downloadable databases. These databases have not yet been released as a
 downloadable product.
 
-See L<GeoIP2::Webservice::Client> for details on the web service client API.
+See L<GeoIP2::WebService::Client> for details on the web service client API.
 
 =head1 INTEGRATION WITH GEONAMES
 

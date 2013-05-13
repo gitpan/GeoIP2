@@ -1,6 +1,6 @@
-package GeoIP2::Error::Webservice;
+package GeoIP2::Error::WebService;
 {
-  $GeoIP2::Error::Webservice::VERSION = '0.0100';
+  $GeoIP2::Error::WebService::VERSION = '0.0200';
 }
 
 use strict;
@@ -22,7 +22,7 @@ has code => (
 
 1;
 
-# ABSTRACT: A generic exception
+# ABSTRACT: An explicit error from the GeoIP2 web service
 
 __END__
 
@@ -30,20 +30,20 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Error::Webservice - A generic exception
+GeoIP2::Error::WebService - An explicit error from the GeoIP2 web service
 
 =head1 VERSION
 
-version 0.0100
+version 0.0200
 
 =head1 SYNOPSIS
 
   use 5.008;
 
-  use GeoIP2::Webservice::Client;
+  use GeoIP2::WebService::Client;
   use Scalar::Util qw( blessed );
 
-  my $client = GeoIP2::Webservice::Client->new(
+  my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
   );
@@ -54,7 +54,7 @@ version 0.0100
   catch {
       die $_ unless blessed $_;
       if ( $_->isa('GeoIP2::Error::HTTP') ) {
-          log_webservice_error(
+          log_web_service_error(
               maxmind_code => $_->code(),
               status       => $_->http_status(),
               uri          => $_->uri(),

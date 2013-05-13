@@ -1,6 +1,6 @@
 package GeoIP2::Error::HTTP;
 {
-  $GeoIP2::Error::HTTP::VERSION = '0.0100';
+  $GeoIP2::Error::HTTP::VERSION = '0.0200';
 }
 
 use strict;
@@ -16,7 +16,7 @@ extends 'Throwable::Error';
 
 1;
 
-# ABSTRACT: A generic exception
+# ABSTRACT: An HTTP transport error
 
 __END__
 
@@ -24,20 +24,20 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Error::HTTP - A generic exception
+GeoIP2::Error::HTTP - An HTTP transport error
 
 =head1 VERSION
 
-version 0.0100
+version 0.0200
 
 =head1 SYNOPSIS
 
   use 5.008;
 
-  use GeoIP2::Webservice::Client;
+  use GeoIP2::WebService::Client;
   use Scalar::Util qw( blessed );
 
-  my $client = GeoIP2::Webservice::Client->new(
+  my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
       license_key => 'abcdef123456',
   );
