@@ -1,6 +1,6 @@
-package GeoIP2::Role::Model;
+package GeoIP2::Role::Model::HasSubdivisions;
 {
-  $GeoIP2::Role::Model::VERSION = '0.0200';
+  $GeoIP2::Role::Model::HasSubdivisions::VERSION = '0.0300';
 }
 
 use strict;

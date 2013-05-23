@@ -1,6 +1,6 @@
 package GeoIP2::Role::Error::HTTP;
 {
-  $GeoIP2::Role::Error::HTTP::VERSION = '0.0200';
+  $GeoIP2::Role::Error::HTTP::VERSION = '0.0300';
 }
 
 use strict;

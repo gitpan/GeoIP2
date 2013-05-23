@@ -1,6 +1,6 @@
 package GeoIP2::Model::Omni;
 {
-  $GeoIP2::Model::Omni::VERSION = '0.0200';
+  $GeoIP2::Model::Omni::VERSION = '0.0300';
 }
 
 use strict;
@@ -13,9 +13,7 @@ use Moo;
 
 with 'GeoIP2::Role::Model', 'GeoIP2::Role::Model::HasSubdivisions';
 
-__PACKAGE__->_define_attributes_for_keys(
-    qw( city continent country location registered_country represented_country traits )
-);
+__PACKAGE__->_define_attributes_for_keys( __PACKAGE__->_all_record_names() );
 
 1;
 
@@ -31,7 +29,7 @@ GeoIP2::Model::Omni - Model class for the GeoIP2 Precision Omni end point
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -84,6 +82,16 @@ believes the IP is located in.
 Returns a L<GeoIP2::Record::Location> object representing country data for the
 requested IP address.
 
+=head2 $omni->maxmind()
+
+Returns a L<GeoIP2::Record::MaxMind> object representing data about your
+MaxMind account.
+
+=head2 $omni->postal()
+
+Returns a L<GeoIP2::Record::Postal> object representing postal code data for
+the requested IP address.
+
 =head2 $omni->registered_country()
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
@@ -127,7 +135,7 @@ request IP address.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

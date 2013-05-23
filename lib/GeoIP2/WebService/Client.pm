@@ -1,6 +1,6 @@
 package GeoIP2::WebService::Client;
 {
-  $GeoIP2::WebService::Client::VERSION = '0.0200';
+  $GeoIP2::WebService::Client::VERSION = '0.0300';
 }
 
 use 5.008;
@@ -8,7 +8,7 @@ use 5.008;
 use strict;
 use warnings;
 
-use Data::Validate::IP qw( is_public_ipv4 );
+use Data::Validate::IP 0.19 qw( is_public_ipv4 is_public_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::HTTP;
 use GeoIP2::Error::WebService;
@@ -134,7 +134,9 @@ my %spec = (
         callbacks => {
             'is a public IP address or me' => sub {
                 return defined $_[0]
-                    && ( $_[0] eq 'me' || is_public_ipv4( $_[0] ) );
+                    && ( $_[0] eq 'me'
+                    || is_public_ipv4( $_[0] )
+                    || is_public_ipv6( $_[0] ) );
                 }
         },
     },
@@ -302,7 +304,7 @@ sub _build_ua {
 
 1;
 
-# ABSTRACT: Perl API for the GeoIP2 Precision web service end points
+# ABSTRACT: Perl API for the GeoIP2 web service end points
 
 __END__
 
@@ -310,11 +312,11 @@ __END__
 
 =head1 NAME
 
-GeoIP2::WebService::Client - Perl API for the GeoIP2 Precision web service end points
+GeoIP2::WebService::Client - Perl API for the GeoIP2 web service end points
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -334,8 +336,8 @@ version 0.0200
 
 =head1 DESCRIPTION
 
-This class provides a client API for all the GeoIP2 Precision web service's
-end points. The end points are Country, City, City/ISP/Org, and Omni. Each end
+This class provides a client API for all the GeoIP2 web service's end
+points. The end points are Country, City, City/ISP/Org, and Omni. Each end
 point returns a different set of data about an IP address, with Country
 returning the least data and Omni the most.
 
@@ -351,7 +353,7 @@ case all of the attributes for that record class will be empty.
 
 =head1 SSL
 
-Requests to the GeoIP2 Precision web service are always made with SSL.
+Requests to the GeoIP2 web service are always made with SSL.
 
 =head1 USAGE
 
@@ -400,27 +402,32 @@ The order of the languages is significant. When a record class has multiple
 names (country, city, etc.), its C<name()> method will look at each element of
 this array ref and return the first language for which it has a name.
 
-Note that the only language which is always present in the GeoIP2 Precision
-data in "en". If you do not include this language, the C<name()> method may
-end up returning C<undef> even when the record in question has an English
-name.
+Note that the only language which is always present in the GeoIP2 data in
+"en". If you do not include this language, the C<name()> method may end up
+returning C<undef> even when the record in question has an English name.
 
 Currently, the valid list of language codes is:
 
 =over 8
 
-=item * en
+=item * de - German
+
+=item * en - English
 
 English names may still include accented characters if that is the accepted
 spelling in English. In other words, English does not mean ASCII.
 
-=item * ja
+=item * es - Spanish
 
-=item * ru
+=item * fr - French
 
-=item * zh-CN
+=item * ja - Japanese
 
-This is simplified Chinese.
+=item * pt-BR - Brazilian Portuguese
+
+=item * ru - Russian
+
+=item * zh-CN - simplified Chinese
 
 =back
 
@@ -455,7 +462,7 @@ All of the request methods accept a single argument:
 =item * ip
 
 This must be a valid IPv4 or IPv6 address, or the string "me". This is the
-address that you want to look up using the GeoIP2 Precision web service.
+address that you want to look up using the GeoIP2 web service.
 
 If you pass the string "me" then the web service returns data on the client
 system's IP address. Note that this is the IP address that the web service
@@ -466,7 +473,7 @@ system's actual IP address.
 
 =head2 $client->country()
 
-This method calls the GeoIP2 Precision Country end point. It returns a
+This method calls the GeoIP2 Country end point. It returns a
 L<GeoIP2::Model::Country> object.
 
 =head2 $client->city()
@@ -496,7 +503,7 @@ support policies for dependencies and Perl itself.
 =head1 EXCEPTIONS
 
 For details on the possible errors returned by the web service itself, see
-http://dev.maxmind.com/geoip/geoip2/web-services for the GeoIP2 Precision web service
+http://dev.maxmind.com/geoip/geoip2/web-services for the GeoIP2 web service
 docs.
 
 If the web service returns an explicit error document, this is thrown as a
@@ -538,7 +545,7 @@ check to see if the attribute is set.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,12 +1,10 @@
 package GeoIP2::Error::Generic;
 {
-  $GeoIP2::Error::Generic::VERSION = '0.0200';
+  $GeoIP2::Error::Generic::VERSION = '0.0300';
 }
 
 use strict;
 use warnings;
-
-use GeoIP2::Types qw( Str );
 
 use Moo;
 
@@ -26,7 +24,7 @@ GeoIP2::Error::Generic - A generic exception
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -34,6 +32,7 @@ version 0.0200
 
   use GeoIP2::WebService::Client;
   use Scalar::Util qw( blessed );
+  use Try::Tiny;
 
   my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
@@ -62,7 +61,7 @@ $error->stack_trace() >>. Both methods are inherited from L<Throwable::Error>.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

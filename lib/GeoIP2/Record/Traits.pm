@@ -1,6 +1,6 @@
 package GeoIP2::Record::Traits;
 {
-  $GeoIP2::Record::Traits::VERSION = '0.0200';
+  $GeoIP2::Record::Traits::VERSION = '0.0300';
 }
 
 use strict;
@@ -79,7 +79,7 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -208,7 +208,7 @@ This attribute is only available from the Omni end point.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

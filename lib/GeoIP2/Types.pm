@@ -1,14 +1,15 @@
 package GeoIP2::Types;
 {
-  $GeoIP2::Types::VERSION = '0.0200';
+  $GeoIP2::Types::VERSION = '0.0300';
 }
 
 use strict;
 use warnings;
 
 use Data::Validate::IP ();
+use GeoIP2::Error::Type;
 use List::MoreUtils ();
-use Scalar::Util ();
+use Scalar::Util    ();
 use Sub::Quote qw( quote_sub );
 use URI;
 
@@ -88,9 +89,13 @@ sub JSONObject () {
 }
 
 {
-    our %_SupportededLangs = map { $_ => 1 } qw(
+    our %_SupportedLangs = map { $_ => 1 } qw(
+        de
         en
+        es
+        fr
         ja
+        pt-BR
         ru
         zh-CN
     );
@@ -103,7 +108,7 @@ sub JSONObject () {
                    && Scalar::Util::reftype( $_[0] ) eq 'ARRAY'
                    && !Scalar::Util::blessed( $_[0] )
                    && List::MoreUtils::all(
-                   sub { defined $_ && !ref $_ && $GeoIP2::Types::_SupportededLangs{$_} },
+                   sub { defined $_ && !ref $_ && $GeoIP2::Types::_SupportedLangs{$_} },
                    @{ $_[0] }
                    ); }
         );
@@ -225,7 +230,12 @@ sub _tc_fail {
         = !defined $value
         ? 'undef'
         : $value;
-    die "$value is not a valid $type";
+
+    GeoIP2::Error::Type->throw(
+        message => "$value is not a valid $type",
+        type    => $type,
+        value   => $value
+    );
 }
 
 1;

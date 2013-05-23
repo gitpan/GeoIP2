@@ -1,6 +1,6 @@
-package GeoIP2::Error::HTTP;
+package GeoIP2::Error::Type;
 {
-  $GeoIP2::Error::HTTP::VERSION = '0.0300';
+  $GeoIP2::Error::Type::VERSION = '0.0300';
 }
 
 use strict;
@@ -8,13 +8,23 @@ use warnings;
 
 use Moo;
 
-with 'GeoIP2::Role::Error::HTTP';
-
 extends 'Throwable::Error';
+
+# We can't load GeoIP2::Types to get types here because we'd have a circular
+# use in that case.
+has type => (
+    is       => 'ro',
+    required => 1,
+);
+
+has value => (
+    is       => 'ro',
+    required => 1,
+);
 
 1;
 
-# ABSTRACT: An HTTP transport error
+# ABSTRACT: A type validation error.
 
 __END__
 
@@ -22,7 +32,7 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Error::HTTP - An HTTP transport error
+GeoIP2::Error::Type - A type validation error.
 
 =head1 VERSION
 
@@ -46,10 +56,10 @@ version 0.0300
   }
   catch {
       die $_ unless blessed $_;
-      if ( $_->isa('GeoIP2::Error::HTTP') ) {
-          log_http_error(
-              status => $_->http_status(),
-              uri    => $_->uri(),
+      if ( $_->isa('GeoIP2::Error::Type') ) {
+          log_validation_error(
+              type   => $_->name(),
+              value  => $_->value(),
           );
       }
 
@@ -58,21 +68,21 @@ version 0.0300
 
 =head1 DESCRIPTION
 
-This class represents an HTTP transport error. It extends L<Throwable::Error>
-and adds attributes of its own.
+This class represents a Moo type validation error. It extends
+L<Throwable::Error> and adds attributes of its own.
 
 =head1 METHODS
 
 The C<< $error->message() >>, and C<< $error->stack_trace() >> methods are
 inherited from L<Throwable::Error>. It also provide two methods of its own:
 
-=head2 $error->http_status()
+=head2 $error->name()
 
-Returns the HTTP status. This should be either a 4xx or 5xx error.
+Returns the name of the type which failed validation.
 
-=head2 $error->uri()
+=head2 $error->value()
 
-Returns the URI which gave the HTTP error.
+Returns the value which triggered the validation failure.
 
 =head1 AUTHOR
 

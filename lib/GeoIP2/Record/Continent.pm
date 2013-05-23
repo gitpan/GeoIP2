@@ -1,6 +1,6 @@
 package GeoIP2::Record::Continent;
 {
-  $GeoIP2::Record::Continent::VERSION = '0.0200';
+  $GeoIP2::Record::Continent::VERSION = '0.0300';
 }
 
 use strict;
@@ -12,10 +12,10 @@ use Moo;
 
 with 'GeoIP2::Role::Record::HasNames';
 
-has continent_code => (
+has code => (
     is        => 'ro',
     isa       => Str,
-    predicate => 'has_continent_code',
+    predicate => 'has_code',
 );
 
 has geoname_id => (
@@ -38,7 +38,7 @@ GeoIP2::Record::Continent - Contains data for the continent record associated wi
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -66,7 +66,7 @@ This record is returned by all the end points.
 
 This class provides the following methods:
 
-=head2 $continent_rec->continent_code()
+=head2 $continent_rec->code()
 
 This returns a two character continent code like "NA" (North America) or "OC"
 (Oceania).
@@ -101,7 +101,7 @@ This attribute is returned by all end points.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

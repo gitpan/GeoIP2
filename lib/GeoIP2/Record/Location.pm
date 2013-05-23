@@ -1,6 +1,6 @@
 package GeoIP2::Record::Location;
 {
-  $GeoIP2::Record::Location::VERSION = '0.0200';
+  $GeoIP2::Record::Location::VERSION = '0.0300';
 }
 
 use strict;
@@ -34,18 +34,6 @@ has metro_code => (
     predicate => 'has_metro_code',
 );
 
-has postal_code => (
-    is       => 'ro',
-    isa      => Str,
-    predicate => 'has_postal_code',
-);
-
-has postal_confidence => (
-    is        => 'ro',
-    isa       => NonNegativeInt,
-    predicate => 'has_postal_confidence',
-);
-
 has time_zone => (
     is       => 'ro',
     isa      => Str,
@@ -66,7 +54,7 @@ GeoIP2::Record::Location - Contains data for the location record associated with
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -121,21 +109,6 @@ MaxMind returns the same metro codes as the Google AdWords API
 
 This attribute is returned by all end points except the Country end point.
 
-=head2 $location_rec->postal_code()
-
-This returns the postal code of the location. Postal codes are not available
-for all countries. In some countries, this will only contain part of the
-postal code.
-
-This attribute is returned by all end points except the Country end point.
-
-=head2 $location_rec->postal_confidence()
-
-This returns a value from 0-100 indicating MaxMind's confidence that the
-postal code is correct.
-
-This attribute is only available from the Omni end point.
-
 =head2 $location_rec->time_zone()
 
 This returns the time zone associated with location, as specified by the IANA
@@ -145,7 +118,7 @@ This attribute is returned by all end points except the Country end point.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

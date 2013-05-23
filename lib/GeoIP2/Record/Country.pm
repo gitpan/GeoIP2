@@ -1,6 +1,6 @@
 package GeoIP2::Record::Country;
 {
-  $GeoIP2::Record::Country::VERSION = '0.0200';
+  $GeoIP2::Record::Country::VERSION = '0.0300';
 }
 
 use strict;
@@ -24,7 +24,7 @@ GeoIP2::Record::Country - Contains data for the country record associated with a
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -94,7 +94,7 @@ This attribute is returned by all end points.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

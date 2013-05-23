@@ -1,6 +1,6 @@
 package GeoIP2::Record::City;
 {
-  $GeoIP2::Record::City::VERSION = '0.0200';
+  $GeoIP2::Record::City::VERSION = '0.0300';
 }
 
 use strict;
@@ -38,7 +38,7 @@ GeoIP2::Record::City - Contains data for the city record associated with an IP a
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -101,7 +101,7 @@ This attribute is returned by all end points.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

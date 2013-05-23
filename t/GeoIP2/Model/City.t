@@ -10,12 +10,11 @@ use Test::GeoIP2 qw(
 );
 use Test::More 0.88;
 
-use GeoIP2::Model::Omni;
+use GeoIP2::Model::City;
 
 {
     my %raw = (
         city => {
-            confidence => 76,
             geoname_id => 9876,
             names      => { en => 'Minneapolis' },
         },
@@ -25,7 +24,6 @@ use GeoIP2::Model::Omni;
             names      => { en => 'North America' },
         },
         country => {
-            confidence => 99,
             geoname_id => 1,
             iso_code   => 'US',
             names      => {
@@ -51,8 +49,7 @@ use GeoIP2::Model::Omni;
             queries_remaining => 42,
         },
         postal => {
-            code       => '12345',
-            confidence => 57,
+            code => '12345',
         },
         registered_country => {
             geoname_id => 2,
@@ -66,30 +63,23 @@ use GeoIP2::Model::Omni;
         },
         subdivisions => [
             {
-                confidence => 88,
                 geoname_id => 574635,
                 iso_code   => 'MN',
                 names      => { en => 'Minnesota' },
             }
         ],
         traits => {
-            autonomous_system_number       => 1234,
-            autonomous_system_organization => 'AS Organization',
-            domain                         => 'example.com',
-            ip_address                     => '1.2.3.4',
-            is_satellite_provider          => 1,
-            isp                            => 'Comcast',
-            organization                   => 'Blorg',
-            user_type                      => 'college',
+            ip_address            => '1.2.3.4',
+            is_satellite_provider => 1,
         },
     );
 
-    test_model_class( 'GeoIP2::Model::Omni', \%raw );
+    test_model_class( 'GeoIP2::Model::City', \%raw );
 }
 
 {
-    test_model_class_with_empty_record('GeoIP2::Model::Omni');
-    test_model_class_with_unknown_keys('GeoIP2::Model::Omni');
+    test_model_class_with_empty_record('GeoIP2::Model::City');
+    test_model_class_with_unknown_keys('GeoIP2::Model::City');
 }
 
 done_testing();

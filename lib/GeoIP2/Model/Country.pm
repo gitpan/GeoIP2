@@ -1,6 +1,6 @@
 package GeoIP2::Model::Country;
 {
-  $GeoIP2::Model::Country::VERSION = '0.0200';
+  $GeoIP2::Model::Country::VERSION = '0.0300';
 }
 
 use strict;
@@ -14,11 +14,11 @@ use Moo;
 with 'GeoIP2::Role::Model';
 
 __PACKAGE__->_define_attributes_for_keys(
-    qw( continent country registered_country traits ));
+    qw( continent country maxmind registered_country traits ));
 
 1;
 
-# ABSTRACT: Model class for the GeoIP2 Precision Country end point
+# ABSTRACT: Model class for the GeoIP2 Country end point
 
 __END__
 
@@ -26,11 +26,11 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Model::Country - Model class for the GeoIP2 Precision Country end point
+GeoIP2::Model::Country - Model class for the GeoIP2 Country end point
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -50,8 +50,8 @@ version 0.0200
 
 =head1 DESCRIPTION
 
-This class provides a model for the data returned by the GeoIP2 Precision
-Country end point.
+This class provides a model for the data returned by the GeoIP2 Country end
+point.
 
 =head1 METHODS
 
@@ -69,6 +69,11 @@ Returns a L<GeoIP2::Record::Country> object representing country data for the
 requested IP address. This record represents the country where MaxMind
 believes the IP is located in.
 
+=head2 $country->maxmind()
+
+Returns a L<GeoIP2::Record::MaxMind> object representing data about your
+MaxMind account.
+
 =head2 $country->registered_country()
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
@@ -76,7 +81,7 @@ country data for the requested IP address. This record represents the country
 where the ISP has registered a given IP block in and may differ from the
 user's country.
 
-=head2 $omni->represented_country()
+=head2 $country->represented_country()
 
 Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
 represented by the requested IP address. The represented country may differ
@@ -89,7 +94,7 @@ request IP address.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

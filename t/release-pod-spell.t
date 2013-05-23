@@ -62,6 +62,7 @@ hostname
 ip
 ja
 lookup
+maxmind
 routable
 ru
 searchEngineSpider

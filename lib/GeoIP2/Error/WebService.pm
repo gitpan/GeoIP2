@@ -1,6 +1,6 @@
 package GeoIP2::Error::WebService;
 {
-  $GeoIP2::Error::WebService::VERSION = '0.0200';
+  $GeoIP2::Error::WebService::VERSION = '0.0300';
 }
 
 use strict;
@@ -34,7 +34,7 @@ GeoIP2::Error::WebService - An explicit error from the GeoIP2 web service
 
 =head1 VERSION
 
-version 0.0200
+version 0.0300
 
 =head1 SYNOPSIS
 
@@ -42,6 +42,7 @@ version 0.0200
 
   use GeoIP2::WebService::Client;
   use Scalar::Util qw( blessed );
+  use Try::Tiny;
 
   my $client = GeoIP2::WebService::Client->new(
       user_id     => 42,
@@ -66,8 +67,8 @@ version 0.0200
 
 =head1 DESCRIPTION
 
-This class represents an error returned by MaxMind's GeoIP2 Precision web
-service. It extends L<Throwable::Error> and adds attributes of its own.
+This class represents an error returned by MaxMind's GeoIP2 web service. It
+extends L<Throwable::Error> and adds attributes of its own.
 
 =head1 METHODS
 
@@ -80,7 +81,7 @@ It also provide three methods of its own:
 
 =head2 $error->code()
 
-Returns the code returned by the MaxMind GeoIP2 Precision web service.
+Returns the code returned by the MaxMind GeoIP2 web service.
 
 =head2 $error->http_status()
 
@@ -92,7 +93,7 @@ Returns the URI which gave the HTTP error.
 
 =head1 AUTHOR
 
-Dave Rolsky <autarch@urth.org>
+Dave Rolsky <drolsky@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 

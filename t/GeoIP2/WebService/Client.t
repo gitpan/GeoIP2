@@ -6,15 +6,16 @@ use Test::More 0.88;
 
 use GeoIP2::WebService::Client;
 use HTTP::Status qw( status_message );
+use IO::Compress::Gzip qw( gzip $GzipError );
 use JSON;
 
 my $json = JSON->new()->utf8();
 
 my %country = (
     continent => {
-        continent_code => 'NA',
-        geoname_id     => 42,
-        names          => { en => 'North America' },
+        code       => 'NA',
+        geoname_id => 42,
+        names      => { en => 'North America' },
     },
     country => {
         geoname_id => 1,
@@ -33,6 +34,11 @@ my %responses = (
         \%country,
     ),
     me => _response(
+        'country',
+        200,
+        \%country,
+    ),
+    'a09c:4242:519c::0123' => _response(
         'country',
         200,
         \%country,
@@ -78,11 +84,19 @@ my %responses = (
         undef,
         'text/plain',
     ),
+    '1.2.3.13' => _response(
+        'country',
+        200,
+        \%country,
+        0,
+        undef,
+        'gzip',
+    ),
 );
 
 my $ua = Mock::LWP::UserAgent->new(
     sub {
-        my $self = shift;
+        my $self    = shift;
         my $request = shift;
 
         my ($ip) = $request->uri() =~ m{country/(.+)$};
@@ -112,9 +126,9 @@ my $ua = Mock::LWP::UserAgent->new(
     );
 
     is(
-        $country->continent()->continent_code(),
+        $country->continent()->code(),
         'NA',
-        'continent continent_code is NA'
+        'continent code is NA'
     );
 
     is_deeply(
@@ -151,6 +165,20 @@ my $ua = Mock::LWP::UserAgent->new(
         $country->country()->name(),
         'United States of America',
         'country name is United States of America'
+    );
+
+    my $ipv6_country = $client->country( ip => 'a09c:4242:519c::0123' );
+    isa_ok(
+        $ipv6_country,
+        'GeoIP2::Model::Country',
+        'return value of $client->country for IPv6 address'
+    );
+
+    my $gzip_country = $client->country( ip => '1.2.3.13' );
+    isa_ok(
+        $gzip_country,
+        'GeoIP2::Model::Country',
+        'return value of $client->country with gzipped response'
     );
 }
 
@@ -329,7 +357,7 @@ my $ua = Mock::LWP::UserAgent->new(
 {
     my $ua = Mock::LWP::UserAgent->new(
         sub {
-            my $self = shift;
+            my $self    = shift;
             my $request = shift;
 
             is(
@@ -423,6 +451,30 @@ my $ua = Mock::LWP::UserAgent->new(
     );
 }
 
+{
+    my $client = GeoIP2::WebService::Client->new(
+        user_id     => 42,
+        license_key => 'abcdef123456',
+    );
+
+    my @bad = qw(
+        mine
+        0.1.2.3
+        255.666.242.1
+        abcd::1234::b6b3
+        1.2.3
+        abcde::
+    );
+
+    for my $bad (@bad) {
+        like(
+            exception { $client->country( ip => $bad ) },
+            qr/is a public IP address or me/,
+            qq{client rejects ip address '$bad'}
+        );
+    }
+}
+
 done_testing();
 
 {
@@ -459,6 +511,7 @@ sub _response {
     my $body         = shift;
     my $bad          = shift;
     my $content_type = shift;
+    my $gzip         = shift;
 
     my $headers = HTTP::Headers->new();
 
@@ -477,6 +530,15 @@ sub _response {
     }
     elsif ($body) {
         $encoded_body = ref $body ? $json->encode($body) : $body;
+    }
+
+    if ($gzip) {
+        $headers->header( 'Content-Encoding', 'gzip' );
+
+        my $gzipped;
+        gzip( \$encoded_body => \$gzipped )
+            or die "gzip failed: $GzipError";
+        $encoded_body = $gzipped;
     }
 
     return HTTP::Response->new(

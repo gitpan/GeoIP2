@@ -1,7 +1,7 @@
 {
    "abstract" : "Perl API for MaxMind's GeoIP2 web services",
    "author" : [
-      "Dave Rolsky <autarch@urth.org>"
+      "Dave Rolsky <drolsky@maxmind.com>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
@@ -28,7 +28,7 @@
       "runtime" : {
          "requires" : {
             "Data::Dumper" : "0",
-            "Data::Validate::IP" : "0",
+            "Data::Validate::IP" : "0.19",
             "Exporter" : "0",
             "Getopt::Long" : "0",
             "JSON" : "0",
@@ -54,6 +54,7 @@
          "requires" : {
             "B" : "0",
             "HTTP::Status" : "0",
+            "IO::Compress::Gzip" : "0",
             "Test::Fatal" : "0",
             "Test::More" : "0.88",
             "base" : "0",
@@ -72,6 +73,6 @@
          "web" : "https://github.com/maxmind/GeoIP2-perl"
       }
    },
-   "version" : "0.0200"
+   "version" : "0.0300"
 }
 

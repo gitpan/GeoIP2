@@ -1,6 +1,6 @@
 package GeoIP2::Role::HasLanguages;
 {
-  $GeoIP2::Role::HasLanguages::VERSION = '0.0200';
+  $GeoIP2::Role::HasLanguages::VERSION = '0.0300';
 }
 
 use strict;
