@@ -1,6 +1,6 @@
 package GeoIP2::Record::Traits;
 {
-  $GeoIP2::Record::Traits::VERSION = '0.0300';
+  $GeoIP2::Record::Traits::VERSION = '0.0301';
 }
 
 use strict;
@@ -79,7 +79,7 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -92,9 +92,9 @@ version 0.0300
       license_key => 'abcdef123456',
   );
 
-  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
-  my $traits_rec = $city->country();
+  my $traits_rec = $omni->country();
   say $traits_rec->name();
 
 =head1 DESCRIPTION
@@ -110,7 +110,7 @@ This class provides the following methods:
 =head2 $traits_rec->autonomous_system_number()
 
 This returns the autonomous system number
-(http://en.wikipedia.org/wiki/Autonomous_system_(Internet)) associated with
+(L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) associated with
 the IP address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
@@ -118,7 +118,7 @@ This attribute is only available from the City/ISP/Org and Omni end points.
 =head2 $traits_rec->autonomous_system_organization()
 
 This returns the organization associated with the registered autonomous system
-number (http://en.wikipedia.org/wiki/Autonomous_system_(Internet)) for the IP
+number (L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) for the IP
 address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
@@ -142,7 +142,7 @@ This attribute is returned by all end points.
 =head2 $traits_rec->is_anonymous_proxy()
 
 This returns true if the IP is an anonymous proxy. See
-http://dev.maxmind.com/faq/geoip#anonproxy for further details.
+L<http://dev.maxmind.com/faq/geoip#anonproxy> for further details.
 
 This attribute is returned by all end points.
 
@@ -155,13 +155,13 @@ This attribute is returned by all end points.
 
 =head2 $traits_rec->isp()
 
-This returns the name of the ISP associated the IP address.
+This returns the name of the ISP associated with the IP address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
 
 =head2 $traits_rec->organization()
 
-This returns the name of the organization associated the IP address.
+This returns the name of the organization associated with the IP address.
 
 This attribute is only available from the City/ISP/Org and Omni end points.
 
@@ -206,9 +206,27 @@ the following values:
 
 This attribute is only available from the Omni end point.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Perl API for MaxMind's GeoIP2 web services",
-  "AUTHOR" => "Dave Rolsky <drolsky\@maxmind.com>",
+  "AUTHOR" => "Dave Rolsky <drolsky\@maxmind.com>, Greg Oschwald <goschwald\@maxmind.com>, Olaf Alders <oalders\@maxmind.com>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -52,7 +52,7 @@ my %WriteMakefileArgs = (
     "base" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.0300",
+  "VERSION" => "0.0301",
   "test" => {
     "TESTS" => "t/*.t t/GeoIP2/*.t t/GeoIP2/Error/*.t t/GeoIP2/Model/*.t t/GeoIP2/WebService/*.t"
   }

@@ -1,6 +1,6 @@
 package GeoIP2::Record::Postal;
 {
-  $GeoIP2::Record::Postal::VERSION = '0.0300';
+  $GeoIP2::Record::Postal::VERSION = '0.0301';
 }
 
 use strict;
@@ -36,7 +36,7 @@ GeoIP2::Record::Postal - Contains data for the postal code record associated wit
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -49,9 +49,9 @@ version 0.0300
       license_key => 'abcdef123456',
   );
 
-  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
-  my $postal_rec = $city->postal();
+  my $postal_rec = $omni->postal();
   say $postal_rec->code();
 
 =head1 DESCRIPTION
@@ -79,9 +79,27 @@ postal code is correct.
 
 This attribute is only available from the Omni end point.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

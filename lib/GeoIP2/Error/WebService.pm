@@ -1,6 +1,6 @@
 package GeoIP2::Error::WebService;
 {
-  $GeoIP2::Error::WebService::VERSION = '0.0300';
+  $GeoIP2::Error::WebService::VERSION = '0.0301';
 }
 
 use strict;
@@ -34,7 +34,7 @@ GeoIP2::Error::WebService - An explicit error from the GeoIP2 web service
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -74,10 +74,10 @@ extends L<Throwable::Error> and adds attributes of its own.
 
 The C<< $error->message() >>, and C<< $error->stack_trace() >> methods are
 inherited from L<Throwable::Error>. The message will be the value provided by
-the MaxMind web service. See http://dev.maxmind.com/geoip/geoip2/web-services for
+the MaxMind web service. See L<http://dev.maxmind.com/geoip/geoip2/web-services> for
 details.
 
-It also provide three methods of its own:
+It also provides three methods of its own:
 
 =head2 $error->code()
 
@@ -91,9 +91,27 @@ Returns the HTTP status. This should be either a 4xx or 5xx error.
 
 Returns the URI which gave the HTTP error.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,6 +1,6 @@
 package GeoIP2::Model::CityISPOrg;
 {
-  $GeoIP2::Model::CityISPOrg::VERSION = '0.0300';
+  $GeoIP2::Model::CityISPOrg::VERSION = '0.0301';
 }
 
 use strict;
@@ -29,7 +29,7 @@ GeoIP2::Model::CityISPOrg - Model class for the GeoIP2 Precision City/ISP/Org en
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -54,7 +54,7 @@ City/ISP/Org end point.
 
 The only difference between the City, City/ISP/Org, and Omni model classes is
 which fields in each record may be populated. See
-http://dev.maxmind.com/geoip/geoip2/web-services for more details.
+L<http://dev.maxmind.com/geoip/geoip2/web-services> for more details.
 
 =head1 METHODS
 
@@ -63,7 +63,7 @@ object.
 
 =head2 $city_isp_org->city()
 
-Returns a L<GeoIP2::Record::City> object representing country data for the
+Returns a L<GeoIP2::Record::City> object representing city data for the
 requested IP address.
 
 =head2 $city_isp_org->continent()
@@ -75,7 +75,7 @@ the requested IP address.
 
 Returns a L<GeoIP2::Record::Country> object representing country data for the
 requested IP address. This record represents the country where MaxMind
-believes the IP is located in.
+believes the IP is located.
 
 =head2 $city_isp_org->location()
 
@@ -96,7 +96,7 @@ the requested IP address.
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
 country data for the requested IP address. This record represents the country
-where the ISP has registered a given IP block in and may differ from the
+where the ISP has registered a given IP block and may differ from the
 user's country.
 
 =head2 $city_isp_org->represented_country()
@@ -131,11 +131,29 @@ L<GeoIP2::Record::Subdivision> object with no values.
 =head2 $city_isp_org->traits()
 
 Returns a L<GeoIP2::Record::Traits> object representing the traits for the
-request IP address.
+requested IP address.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

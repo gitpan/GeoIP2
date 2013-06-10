@@ -1,6 +1,6 @@
 package GeoIP2::Role::Record::Country;
 {
-  $GeoIP2::Role::Record::Country::VERSION = '0.0300';
+  $GeoIP2::Role::Record::Country::VERSION = '0.0301';
 }
 
 use strict;

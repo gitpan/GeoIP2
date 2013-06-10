@@ -1,6 +1,6 @@
 package GeoIP2::Types;
 {
-  $GeoIP2::Types::VERSION = '0.0300';
+  $GeoIP2::Types::VERSION = '0.0301';
 }
 
 use strict;

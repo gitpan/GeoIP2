@@ -1,6 +1,6 @@
 package GeoIP2::Error::HTTP;
 {
-  $GeoIP2::Error::HTTP::VERSION = '0.0300';
+  $GeoIP2::Error::HTTP::VERSION = '0.0301';
 }
 
 use strict;
@@ -26,7 +26,7 @@ GeoIP2::Error::HTTP - An HTTP transport error
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -74,9 +74,27 @@ Returns the HTTP status. This should be either a 4xx or 5xx error.
 
 Returns the URI which gave the HTTP error.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

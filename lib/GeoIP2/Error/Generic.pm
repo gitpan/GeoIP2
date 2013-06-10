@@ -1,6 +1,6 @@
 package GeoIP2::Error::Generic;
 {
-  $GeoIP2::Error::Generic::VERSION = '0.0300';
+  $GeoIP2::Error::Generic::VERSION = '0.0301';
 }
 
 use strict;
@@ -24,7 +24,7 @@ GeoIP2::Error::Generic - A generic exception
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -59,9 +59,27 @@ not add any additional attributes.
 This class has two methods, C<< $error->message() >>, and C<<
 $error->stack_trace() >>. Both methods are inherited from L<Throwable::Error>.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

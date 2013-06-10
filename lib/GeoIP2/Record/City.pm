@@ -1,6 +1,6 @@
 package GeoIP2::Record::City;
 {
-  $GeoIP2::Record::City::VERSION = '0.0300';
+  $GeoIP2::Record::City::VERSION = '0.0301';
 }
 
 use strict;
@@ -38,7 +38,7 @@ GeoIP2::Record::City - Contains data for the city record associated with an IP a
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -51,9 +51,9 @@ version 0.0300
       license_key => 'abcdef123456',
   );
 
-  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
-  my $city_rec = $city->city();
+  my $city_rec = $omni->city();
   say $city_rec->name();
 
 =head1 DESCRIPTION
@@ -86,7 +86,7 @@ C<languages> argument that was passed to the record's constructor. This will
 be passed through from the L<GeoIP2::WebService::Client> object you used to
 fetch the data that populated this record.
 
-If the record does not have a name in any of languages you asked for, this
+If the record does not have a name in any of the languages you asked for, this
 method returns C<undef>.
 
 This attribute is returned by all end points.
@@ -99,9 +99,27 @@ language codes.
 
 This attribute is returned by all end points.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

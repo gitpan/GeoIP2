@@ -1,6 +1,6 @@
 package GeoIP2::Record::MaxMind;
 {
-  $GeoIP2::Record::MaxMind::VERSION = '0.0300';
+  $GeoIP2::Record::MaxMind::VERSION = '0.0301';
 }
 
 use strict;
@@ -30,7 +30,7 @@ GeoIP2::Record::MaxMind - Contains data for the maxmind record returned from a w
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -43,9 +43,9 @@ version 0.0300
       license_key => 'abcdef123456',
   );
 
-  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
-  my $maxmind_rec = $city->maxmind();
+  my $maxmind_rec = $omni->maxmind();
   say $maxmind_rec->queries_remaining();
 
 =head1 DESCRIPTION
@@ -67,9 +67,27 @@ The number of queries remaining for the end point you just queried. Note that
 this is an approximation as query counts are only periodically synced across
 all of MaxMind's servers.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

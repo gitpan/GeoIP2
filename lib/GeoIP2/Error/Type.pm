@@ -1,6 +1,6 @@
 package GeoIP2::Error::Type;
 {
-  $GeoIP2::Error::Type::VERSION = '0.0300';
+  $GeoIP2::Error::Type::VERSION = '0.0301';
 }
 
 use strict;
@@ -36,7 +36,7 @@ GeoIP2::Error::Type - A type validation error.
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -84,9 +84,27 @@ Returns the name of the type which failed validation.
 
 Returns the value which triggered the validation failure.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

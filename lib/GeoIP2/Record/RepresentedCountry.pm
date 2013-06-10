@@ -1,6 +1,6 @@
 package GeoIP2::Record::RepresentedCountry;
 {
-  $GeoIP2::Record::RepresentedCountry::VERSION = '0.0300';
+  $GeoIP2::Record::RepresentedCountry::VERSION = '0.0301';
 }
 
 use strict;
@@ -32,7 +32,7 @@ GeoIP2::Record::RepresentedCountry - Contains data for the represented country r
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -45,9 +45,9 @@ version 0.0300
       license_key => 'abcdef123456',
   );
 
-  my $city = $client->city_isp_org( ip => '24.24.24.24' );
+  my $omni = $client->omni( ip => '24.24.24.24' );
 
-  my $country_rec = $city->reprented_country();
+  my $country_rec = $omni->reprented_country();
   say $country_rec->name();
   say $country_rec->type();
 
@@ -79,7 +79,7 @@ This attribute is returned by all end points.
 =head2 $country_rec->iso_code()
 
 This returns the two-character ISO 3166-1
-(http://en.wikipedia.org/wiki/ISO_3166-1) alpha code for the country.
+(L<http://en.wikipedia.org/wiki/ISO_3166-1>) alpha code for the country.
 
 This attribute is returned by all end points.
 
@@ -90,7 +90,7 @@ C<languages> argument that was passed to the record's constructor. This will
 be passed through from the L<GeoIP2::WebService::Client> object you used to
 fetch the data that populated this record.
 
-If the record does not have a name in any of languages you asked for, this
+If the record does not have a name in any of the languages you asked for, this
 method returns C<undef>.
 
 This attribute is returned by all end points.
@@ -111,9 +111,27 @@ other types such as C<embassy> in the future.
 
 This attribute is returned by all end points.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,6 +1,6 @@
 package GeoIP2::WebService::Client;
 {
-  $GeoIP2::WebService::Client::VERSION = '0.0300';
+  $GeoIP2::WebService::Client::VERSION = '0.0301';
 }
 
 use 5.008;
@@ -316,7 +316,7 @@ GeoIP2::WebService::Client - Perl API for the GeoIP2 web service end points
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -380,14 +380,14 @@ This method creates a new client object. It accepts the following arguments:
 
 =item * user_id
 
-Your MaxMind User ID. Go to https://www.maxmind.com/en/my_license_key to see
+Your MaxMind User ID. Go to L<https://www.maxmind.com/en/my_license_key> to see
 your MaxMind User ID and license key.
 
 This argument is required.
 
 =item * license_key
 
-Your MaxMind license key. Go to https://www.maxmind.com/en/my_license_key to
+Your MaxMind license key. Go to L<https://www.maxmind.com/en/my_license_key> to
 see your MaxMind User ID and license key.
 
 This argument is required.
@@ -503,7 +503,7 @@ support policies for dependencies and Perl itself.
 =head1 EXCEPTIONS
 
 For details on the possible errors returned by the web service itself, see
-http://dev.maxmind.com/geoip/geoip2/web-services for the GeoIP2 web service
+L<http://dev.maxmind.com/geoip/geoip2/web-services> for the GeoIP2 web service
 docs.
 
 If the web service returns an explicit error document, this is thrown as a
@@ -534,7 +534,7 @@ piece of data for any given IP address.
 Because of these factors, it is possible for any end point to return a record
 where some or all of the attributes are unpopulated.
 
-See http://dev.maxmind.com/geoip/geoip2/web-services for details on what data each end
+See L<http://dev.maxmind.com/geoip/geoip2/web-services> for details on what data each end
 point I<may> return.
 
 The only piece of data which is always returned is the C<ip_address> key in
@@ -543,9 +543,27 @@ the C<GeoIP2::Record::Traits> record.
 Every record class attribute has a corresponding predicate method so you can
 check to see if the attribute is set.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

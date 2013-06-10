@@ -1,6 +1,6 @@
 package GeoIP2;
 {
-  $GeoIP2::VERSION = '0.0300';
+  $GeoIP2::VERSION = '0.0301';
 }
 
 use 5.008;
@@ -19,15 +19,12 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 DESCRIPTION
 
-B<This is an alpha release, and APIs may change before the final production
-release, which will be numbered 2.0000>.
-
 This distribution provides an API for the GeoIP2 web services (as documented
-at http://dev.maxmind.com/geoip/geoip2/web-services).
+at L<http://dev.maxmind.com/geoip/geoip2/web-services>).
 
 In the future, this distribution will also provide the same API for the GeoIP2
 downloadable databases. These databases have not yet been released as a
@@ -35,12 +32,23 @@ downloadable product.
 
 See L<GeoIP2::WebService::Client> for details on the web service client API.
 
+=head1 BETA NOTE
+
+This is a beta release. The API may change before the first production
+release, which will be numbered 2.0000.
+
+You may find information on the GeoIP2 beta release process on
+L<our website|http://www.maxmind.com/en/geoip2_beta>.
+
+To provide feedback or get support during the beta, please see the
+L<MaxMind Customer Community|https://getsatisfaction.com/maxmind>.
+
 =head1 INTEGRATION WITH GEONAMES
 
-GeoNames (http://www.geonames.org/) offers web services and downloadable
+GeoNames (L<http://www.geonames.org/>) offers web services and downloadable
 databases with data on geographical features around the world, including
 populated places. They offer both free and paid premium data. Each feature is
-unique identified by a C<geoname_id>, which is an integer.
+uniquely identified by a C<geoname_id>, which is an integer.
 
 Many of the records returned by the GeoIP web services and databases include a
 C<geoname_id> field. This is the ID of a geographical feature (city, region,
@@ -53,10 +61,10 @@ GeoNames premium data set.
 =head1 REPORTING DATA PROBLEMS
 
 If the problem you find is that an IP address is incorrectly mapped, please
-submit your correction to MaxMind at http://www.maxmind.com/en/correction.
+submit your correction to MaxMind at L<http://www.maxmind.com/en/correction>.
 
 If you find some other sort of mistake, like an incorrect spelling, please
-check the GeoNames site (http://www.geonames.org/) first. Once you've searched
+check the GeoNames site (L<http://www.geonames.org/>) first. Once you've searched
 for a place and found it on the GeoNames map view, there are a number of links
 you can use to correct data ("move", "edit", "alternate names", etc.). Once
 the correction is part of the GeoNames data set, it will be automatically
@@ -64,12 +72,12 @@ incorporated into future MaxMind releases.
 
 If you are a paying MaxMind customer and you're not sure where to submit a
 correction, please contact MaxMind support at for help. See
-http://www.maxmind.com/en/support for support details.
+L<http://www.maxmind.com/en/support> for support details.
 
 =head1 VERSIONING POLICY
 
 This module uses semantic versioning as described by
-http://semver.org/. Version numbers can be read as X.YYZZ, where X is the
+L<http://semver.org/>. Version numbers can be read as X.YYZZ, where X is the
 major number, YY is the minor number, and ZZ is the patch number.
 
 =head1 PERL VERSION SUPPORT
@@ -86,14 +94,32 @@ version of Perl available.
 =head1 SUPPORT
 
 Please report all issues with this code using the GitHub issue tracker at
-https://github.com/maxmind/GeoIP2-perl/issues
+L<https://github.com/maxmind/GeoIP2-perl/issues>
 
 If you are having an issue with a MaxMind service that is not specific to the
-client API please see http://www.maxmind.com/en/support for details.
+client API please see L<http://www.maxmind.com/en/support> for details.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

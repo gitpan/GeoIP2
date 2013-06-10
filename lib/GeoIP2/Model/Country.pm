@@ -1,6 +1,6 @@
 package GeoIP2::Model::Country;
 {
-  $GeoIP2::Model::Country::VERSION = '0.0300';
+  $GeoIP2::Model::Country::VERSION = '0.0301';
 }
 
 use strict;
@@ -30,7 +30,7 @@ GeoIP2::Model::Country - Model class for the GeoIP2 Country end point
 
 =head1 VERSION
 
-version 0.0300
+version 0.0301
 
 =head1 SYNOPSIS
 
@@ -67,7 +67,7 @@ the requested IP address.
 
 Returns a L<GeoIP2::Record::Country> object representing country data for the
 requested IP address. This record represents the country where MaxMind
-believes the IP is located in.
+believes the IP is located.
 
 =head2 $country->maxmind()
 
@@ -78,7 +78,7 @@ MaxMind account.
 
 Returns a L<GeoIP2::Record::Country> object representing the registered
 country data for the requested IP address. This record represents the country
-where the ISP has registered a given IP block in and may differ from the
+where the ISP has registered a given IP block and may differ from the
 user's country.
 
 =head2 $country->represented_country()
@@ -90,11 +90,29 @@ from the C<country> for things like military bases or embassies.
 =head2 $country->traits()
 
 Returns a L<GeoIP2::Record::Traits> object representing the traits for the
-request IP address.
+requested IP address.
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Dave Rolsky <drolsky@maxmind.com>
+
+=item *
+
+Greg Oschwald <goschwald@maxmind.com>
+
+=item *
+
+Olaf Alders <oalders@maxmind.com>
+
+=back
+
+=head1 CONTRIBUTOR
+
+Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

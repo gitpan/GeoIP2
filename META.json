@@ -1,7 +1,9 @@
 {
    "abstract" : "Perl API for MaxMind's GeoIP2 web services",
    "author" : [
-      "Dave Rolsky <drolsky@maxmind.com>"
+      "Dave Rolsky <drolsky@maxmind.com>",
+      "Greg Oschwald <goschwald@maxmind.com>",
+      "Olaf Alders <oalders@maxmind.com>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
@@ -73,6 +75,9 @@
          "web" : "https://github.com/maxmind/GeoIP2-perl"
       }
    },
-   "version" : "0.0300"
+   "version" : "0.0301",
+   "x_contributors" : [
+      "Graham Knop <haarg@haarg.org>"
+   ]
 }
 
