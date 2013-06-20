@@ -6,9 +6,9 @@
       "Olaf Alders <oalders@maxmind.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.120921",
    "license" : [
-      "artistic_2"
+      "perl_5"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -47,6 +47,7 @@
             "Throwable::Error" : "0",
             "Try::Tiny" : "0",
             "URI" : "0",
+            "lib" : "0",
             "perl" : "5.008",
             "strict" : "0",
             "warnings" : "0"
@@ -75,7 +76,7 @@
          "web" : "https://github.com/maxmind/GeoIP2-perl"
       }
    },
-   "version" : "0.0301",
+   "version" : "0.0302",
    "x_contributors" : [
       "Graham Knop <haarg@haarg.org>"
    ]

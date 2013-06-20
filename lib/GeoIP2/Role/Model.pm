@@ -1,6 +1,6 @@
 package GeoIP2::Role::Model;
 {
-  $GeoIP2::Role::Model::VERSION = '0.0301';
+  $GeoIP2::Role::Model::VERSION = '0.0302';
 }
 
 use strict;

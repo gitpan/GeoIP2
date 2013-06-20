@@ -1,6 +1,6 @@
 package GeoIP2::Record::Continent;
 {
-  $GeoIP2::Record::Continent::VERSION = '0.0301';
+  $GeoIP2::Record::Continent::VERSION = '0.0302';
 }
 
 use strict;
@@ -38,7 +38,7 @@ GeoIP2::Record::Continent - Contains data for the continent record associated wi
 
 =head1 VERSION
 
-version 0.0301
+version 0.0302
 
 =head1 SYNOPSIS
 
@@ -123,10 +123,9 @@ Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2013 by MaxMind, Inc..
+This software is copyright (c) 2013 by MaxMind, Inc..
 
-This is free software, licensed under:
-
-  The Artistic License 2.0 (GPL Compatible)
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

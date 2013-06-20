@@ -19,7 +19,7 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [
     "bin/web-service-request"
   ],
-  "LICENSE" => "artistic_2",
+  "LICENSE" => "perl",
   "NAME" => "GeoIP2",
   "PREREQ_PM" => {
     "Data::Dumper" => 0,
@@ -40,6 +40,7 @@ my %WriteMakefileArgs = (
     "Throwable::Error" => 0,
     "Try::Tiny" => 0,
     "URI" => 0,
+    "lib" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -52,7 +53,7 @@ my %WriteMakefileArgs = (
     "base" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.0301",
+  "VERSION" => "0.0302",
   "test" => {
     "TESTS" => "t/*.t t/GeoIP2/*.t t/GeoIP2/Error/*.t t/GeoIP2/Model/*.t t/GeoIP2/WebService/*.t"
   }
