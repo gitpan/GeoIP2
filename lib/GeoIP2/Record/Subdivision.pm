@@ -1,6 +1,9 @@
 package GeoIP2::Record::Subdivision;
 {
-  $GeoIP2::Record::Subdivision::VERSION = '0.0302';
+  $GeoIP2::Record::Subdivision::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Record::Subdivision::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -44,7 +47,7 @@ GeoIP2::Record::Subdivision - Contains data for the subdivision record associate
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

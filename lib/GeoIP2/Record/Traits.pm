@@ -1,6 +1,9 @@
 package GeoIP2::Record::Traits;
 {
-  $GeoIP2::Record::Traits::VERSION = '0.0302';
+  $GeoIP2::Record::Traits::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Record::Traits::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -79,7 +82,7 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

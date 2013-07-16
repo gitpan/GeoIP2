@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Perl API for MaxMind's GeoIP2 web services",
+  "ABSTRACT" => "Perl API for MaxMind's GeoIP2 web services and databases",
   "AUTHOR" => "Dave Rolsky <drolsky\@maxmind.com>, Greg Oschwald <goschwald\@maxmind.com>, Olaf Alders <oalders\@maxmind.com>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
@@ -22,6 +22,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "GeoIP2",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Data::Dumper" => 0,
     "Data::Validate::IP" => "0.19",
     "Exporter" => 0,
@@ -32,6 +33,7 @@ my %WriteMakefileArgs = (
     "List::MoreUtils" => 0,
     "List::Util" => 0,
     "MIME::Base64" => 0,
+    "MaxMind::DB::Reader" => 0,
     "Moo" => 0,
     "Moo::Role" => 0,
     "Params::Validate" => 0,
@@ -48,14 +50,15 @@ my %WriteMakefileArgs = (
     "B" => 0,
     "HTTP::Status" => 0,
     "IO::Compress::Gzip" => 0,
+    "Path::Class" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.88",
     "base" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.0302",
+  "VERSION" => "0.040000",
   "test" => {
-    "TESTS" => "t/*.t t/GeoIP2/*.t t/GeoIP2/Error/*.t t/GeoIP2/Model/*.t t/GeoIP2/WebService/*.t"
+    "TESTS" => "t/*.t t/GeoIP2/*.t t/GeoIP2/Database/*.t t/GeoIP2/Error/*.t t/GeoIP2/Model/*.t t/GeoIP2/WebService/*.t"
   }
 );
 

@@ -1,5 +1,5 @@
 ---
-abstract: "Perl API for MaxMind's GeoIP2 web services"
+abstract: "Perl API for MaxMind's GeoIP2 web services and databases"
 author:
   - 'Dave Rolsky <drolsky@maxmind.com>'
   - 'Greg Oschwald <goschwald@maxmind.com>'
@@ -8,6 +8,7 @@ build_requires:
   B: 0
   HTTP::Status: 0
   IO::Compress::Gzip: 0
+  Path::Class: 0
   Test::Fatal: 0
   Test::More: 0.88
   base: 0
@@ -15,13 +16,14 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: GeoIP2
 requires:
+  Carp: 0
   Data::Dumper: 0
   Data::Validate::IP: 0.19
   Exporter: 0
@@ -32,6 +34,7 @@ requires:
   List::MoreUtils: 0
   List::Util: 0
   MIME::Base64: 0
+  MaxMind::DB::Reader: 0
   Moo: 0
   Moo::Role: 0
   Params::Validate: 0
@@ -47,6 +50,7 @@ requires:
 resources:
   bugtracker: https://github.com/maxmind/GeoIP2-perl/issues
   repository: git://github.com/maxmind/GeoIP2-perl.git
-version: 0.0302
+version: 0.040000
+x_authority: cpan:TJMATHER
 x_contributors:
   - 'Graham Knop <haarg@haarg.org>'

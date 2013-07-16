@@ -1,6 +1,9 @@
 package GeoIP2::Types;
 {
-  $GeoIP2::Types::VERSION = '0.0302';
+  $GeoIP2::Types::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Types::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;

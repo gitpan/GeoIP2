@@ -1,9 +1,9 @@
-package GeoIP2::Error::WebService;
+package GeoIP2::Error::IPAddressNotFound;
 {
-  $GeoIP2::Error::WebService::VERSION = '0.040000';
+  $GeoIP2::Error::IPAddressNotFound::VERSION = '0.040000';
 }
 BEGIN {
-  $GeoIP2::Error::WebService::AUTHORITY = 'cpan:TJMATHER';
+  $GeoIP2::Error::IPAddressNotFound::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -13,11 +13,9 @@ use GeoIP2::Types qw( Str );
 
 use Moo;
 
-with 'GeoIP2::Role::Error::HTTP';
-
 extends 'Throwable::Error';
 
-has code => (
+has ip_address => (
     is       => 'ro',
     isa      => Str,
     required => 1,
@@ -25,7 +23,7 @@ has code => (
 
 1;
 
-# ABSTRACT: An explicit error from the GeoIP2 web service
+# ABSTRACT: An exception thrown when an IP address is not in the MaxMind GeoIP2 database
 
 __END__
 
@@ -33,7 +31,7 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Error::WebService - An explicit error from the GeoIP2 web service
+GeoIP2::Error::IPAddressNotFound - An exception thrown when an IP address is not in the MaxMind GeoIP2 database
 
 =head1 VERSION
 
@@ -57,12 +55,8 @@ version 0.040000
   }
   catch {
       die $_ unless blessed $_;
-      if ( $_->isa('GeoIP2::Error::HTTP') ) {
-          log_web_service_error(
-              maxmind_code => $_->code(),
-              status       => $_->http_status(),
-              uri          => $_->uri(),
-          );
+      if ( $_->isa('GeoIP2::Error::IPAddressNotFound') ) {
+          log_ip_address_not_found_error( ip_address => $_->ip_address() );
       }
 
       # handle other exceptions
@@ -70,29 +64,17 @@ version 0.040000
 
 =head1 DESCRIPTION
 
-This class represents an error returned by MaxMind's GeoIP2 web service. It
-extends L<Throwable::Error> and adds attributes of its own.
+This class represents an error that occurs when an IP address is not found in
+the MaxMind GeoIP2 database, either through a web service or a local database.
 
 =head1 METHODS
 
 The C<< $error->message() >>, and C<< $error->stack_trace() >> methods are
-inherited from L<Throwable::Error>. The message will be the value provided by
-the MaxMind web service. See L<http://dev.maxmind.com/geoip/geoip2/web-services> for
-details.
+inherited from L<Throwable::Error>. It also provide two methods of its own:
 
-It also provides three methods of its own:
+=head2 $error->ip_address()
 
-=head2 $error->code()
-
-Returns the code returned by the MaxMind GeoIP2 web service.
-
-=head2 $error->http_status()
-
-Returns the HTTP status. This should be either a 4xx or 5xx error.
-
-=head2 $error->uri()
-
-Returns the URI which gave the HTTP error.
+Returns the IP address that could not be found.
 
 =head1 AUTHORS
 

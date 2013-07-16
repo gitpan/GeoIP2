@@ -1,6 +1,9 @@
 package GeoIP2::Record::Postal;
 {
-  $GeoIP2::Record::Postal::VERSION = '0.0302';
+  $GeoIP2::Record::Postal::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Record::Postal::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -36,7 +39,7 @@ GeoIP2::Record::Postal - Contains data for the postal code record associated wit
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

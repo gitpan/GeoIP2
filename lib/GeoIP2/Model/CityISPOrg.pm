@@ -1,6 +1,9 @@
 package GeoIP2::Model::CityISPOrg;
 {
-  $GeoIP2::Model::CityISPOrg::VERSION = '0.0302';
+  $GeoIP2::Model::CityISPOrg::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Model::CityISPOrg::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -29,7 +32,7 @@ GeoIP2::Model::CityISPOrg - Model class for the GeoIP2 Precision City/ISP/Org en
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

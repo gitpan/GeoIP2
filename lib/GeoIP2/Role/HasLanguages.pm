@@ -1,6 +1,9 @@
 package GeoIP2::Role::HasLanguages;
 {
-  $GeoIP2::Role::HasLanguages::VERSION = '0.0302';
+  $GeoIP2::Role::HasLanguages::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Role::HasLanguages::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;

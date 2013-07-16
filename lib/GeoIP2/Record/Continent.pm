@@ -1,6 +1,9 @@
 package GeoIP2::Record::Continent;
 {
-  $GeoIP2::Record::Continent::VERSION = '0.0302';
+  $GeoIP2::Record::Continent::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Record::Continent::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -38,7 +41,7 @@ GeoIP2::Record::Continent - Contains data for the continent record associated wi
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,9 @@
 package GeoIP2::Record::City;
 {
-  $GeoIP2::Record::City::VERSION = '0.0302';
+  $GeoIP2::Record::City::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Record::City::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -38,7 +41,7 @@ GeoIP2::Record::City - Contains data for the city record associated with an IP a
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,9 @@
 package GeoIP2::Record::MaxMind;
 {
-  $GeoIP2::Record::MaxMind::VERSION = '0.0302';
+  $GeoIP2::Record::MaxMind::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Record::MaxMind::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -11,9 +14,8 @@ use GeoIP2::Types qw( NonNegativeInt );
 use Moo;
 
 has queries_remaining => (
-    is       => 'ro',
-    isa      => NonNegativeInt,
-    required => 1,
+    is  => 'ro',
+    isa => NonNegativeInt,
 );
 
 1;
@@ -30,7 +32,7 @@ GeoIP2::Record::MaxMind - Contains data for the maxmind record returned from a w
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,9 @@
 package GeoIP2::Error::Generic;
 {
-  $GeoIP2::Error::Generic::VERSION = '0.0302';
+  $GeoIP2::Error::Generic::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Error::Generic::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -24,7 +27,7 @@ GeoIP2::Error::Generic - A generic exception
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

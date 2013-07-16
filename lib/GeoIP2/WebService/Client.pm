@@ -1,6 +1,9 @@
 package GeoIP2::WebService::Client;
 {
-  $GeoIP2::WebService::Client::VERSION = '0.0302';
+  $GeoIP2::WebService::Client::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::WebService::Client::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use 5.008;
@@ -11,6 +14,7 @@ use warnings;
 use Data::Validate::IP 0.19 qw( is_public_ipv4 is_public_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::HTTP;
+use GeoIP2::Error::IPAddressNotFound;
 use GeoIP2::Error::WebService;
 use GeoIP2::Model::City;
 use GeoIP2::Model::CityISPOrg;
@@ -170,7 +174,7 @@ sub _response_for {
     }
     else {
         # all other error codes throw an exception
-        $self->_handle_error_status( $response, $uri );
+        $self->_handle_error_status( $response, $uri, $p{ip} );
     }
 }
 
@@ -197,11 +201,12 @@ sub _handle_error_status {
     my $self     = shift;
     my $response = shift;
     my $uri      = shift;
+    my $ip       = shift;
 
     my $status = $response->code();
 
     if ( $status =~ /^4/ ) {
-        $self->_handle_4xx_status( $response, $status, $uri );
+        $self->_handle_4xx_status( $response, $status, $uri, $ip );
     }
     elsif ( $status =~ /^5/ ) {
         $self->_handle_5xx_status( $response, $status, $uri );
@@ -216,6 +221,14 @@ sub _handle_4xx_status {
     my $response = shift;
     my $status   = shift;
     my $uri      = shift;
+    my $ip       = shift;
+
+    if ( $status == 404 ) {
+        GeoIP2::Error::IPAddressNotFound->throw(
+            message    => "No record found for IP address $ip",
+            ip_address => $ip,
+        );
+    }
 
     my $content = $response->decoded_content();
 
@@ -316,7 +329,7 @@ GeoIP2::WebService::Client - Perl API for the GeoIP2 web service end points
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

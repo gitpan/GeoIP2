@@ -1,12 +1,12 @@
 {
-   "abstract" : "Perl API for MaxMind's GeoIP2 web services",
+   "abstract" : "Perl API for MaxMind's GeoIP2 web services and databases",
    "author" : [
       "Dave Rolsky <drolsky@maxmind.com>",
       "Greg Oschwald <goschwald@maxmind.com>",
       "Olaf Alders <oalders@maxmind.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
    "license" : [
       "perl_5"
    ],
@@ -29,6 +29,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "Data::Dumper" : "0",
             "Data::Validate::IP" : "0.19",
             "Exporter" : "0",
@@ -39,6 +40,7 @@
             "List::MoreUtils" : "0",
             "List::Util" : "0",
             "MIME::Base64" : "0",
+            "MaxMind::DB::Reader" : "0",
             "Moo" : "0",
             "Moo::Role" : "0",
             "Params::Validate" : "0",
@@ -58,6 +60,7 @@
             "B" : "0",
             "HTTP::Status" : "0",
             "IO::Compress::Gzip" : "0",
+            "Path::Class" : "0",
             "Test::Fatal" : "0",
             "Test::More" : "0.88",
             "base" : "0",
@@ -76,7 +79,8 @@
          "web" : "https://github.com/maxmind/GeoIP2-perl"
       }
    },
-   "version" : "0.0302",
+   "version" : "0.040000",
+   "x_authority" : "cpan:TJMATHER",
    "x_contributors" : [
       "Graham Knop <haarg@haarg.org>"
    ]

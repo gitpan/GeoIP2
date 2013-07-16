@@ -1,6 +1,9 @@
 package GeoIP2::Error::Type;
 {
-  $GeoIP2::Error::Type::VERSION = '0.0302';
+  $GeoIP2::Error::Type::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Error::Type::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -36,7 +39,7 @@ GeoIP2::Error::Type - A type validation error.
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 

@@ -33,6 +33,7 @@ AdWords
 CN
 GEONAMES
 GeoIP
+GeoLite
 GeoNames
 GitHub
 IANA
@@ -51,9 +52,8 @@ Rolsky
 SSL
 URI
 VERSIONING
-YY
-YYZZ
-ZZ
+YYY
+YYYZZZ
 contentDeliveryNetwork
 de
 dialup
@@ -65,6 +65,8 @@ ip
 ja
 lookup
 maxmind
+omni
+params
 routable
 ru
 searchEngineSpider

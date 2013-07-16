@@ -1,6 +1,9 @@
 package GeoIP2::Record::RepresentedCountry;
 {
-  $GeoIP2::Record::RepresentedCountry::VERSION = '0.0302';
+  $GeoIP2::Record::RepresentedCountry::VERSION = '0.040000';
+}
+BEGIN {
+  $GeoIP2::Record::RepresentedCountry::AUTHORITY = 'cpan:TJMATHER';
 }
 
 use strict;
@@ -32,7 +35,7 @@ GeoIP2::Record::RepresentedCountry - Contains data for the represented country r
 
 =head1 VERSION
 
-version 0.0302
+version 0.040000
 
 =head1 SYNOPSIS
 
