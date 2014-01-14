@@ -1,6 +1,6 @@
 package GeoIP2::Types;
 {
-  $GeoIP2::Types::VERSION = '0.040000';
+  $GeoIP2::Types::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::Types::AUTHORITY = 'cpan:TJMATHER';
@@ -25,7 +25,7 @@ our @EXPORT_OK = qw(
     HashRef
     IPAddress
     JSONObject
-    LanguagesArrayRef
+    LocalesArrayRef
     MaxMindID
     MaxMindLicenseKey
     MaybeStr
@@ -103,9 +103,9 @@ sub JSONObject () {
         zh-CN
     );
 
-    sub LanguagesArrayRef () {
+    sub LocalesArrayRef () {
         return quote_sub(
-            q{ GeoIP2::Types::_tc_fail( $_[0], 'LanguagesArrayRef' )
+            q{ GeoIP2::Types::_tc_fail( $_[0], 'LocalesArrayRef' )
                    unless defined $_[0]
                    && ref $_[0]
                    && Scalar::Util::reftype( $_[0] ) eq 'ARRAY'
@@ -198,7 +198,8 @@ sub URIObject () {
 }
 
 sub UserAgentObject () {
-    return quote_sub(q{ GeoIP2::Types::object_can_type( $_[0], 'agent', 'request' ) });
+    return quote_sub(
+        q{ GeoIP2::Types::object_can_type( $_[0], 'agent', 'request' ) });
 }
 
 sub object_can_type {

@@ -1,6 +1,6 @@
 package GeoIP2::Database::Reader;
 {
-  $GeoIP2::Database::Reader::VERSION = '0.040000';
+  $GeoIP2::Database::Reader::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::Database::Reader::AUTHORITY = 'cpan:TJMATHER';
@@ -8,9 +8,6 @@ BEGIN {
 
 use strict;
 use warnings;
-
-use Moo;
-with 'GeoIP2::Role::HasLanguages';
 
 use Carp qw( croak );
 use GeoIP2::Error::Generic;
@@ -22,6 +19,10 @@ use GeoIP2::Model::Omni;
 use GeoIP2::Model::Omni;
 use GeoIP2::Types qw( Str );
 use MaxMind::DB::Reader;
+
+use Moo;
+
+with 'GeoIP2::Role::HasLocales';
 
 has file => (
     is       => 'ro',
@@ -57,7 +58,7 @@ sub _model_for_address {
     if ( $ip eq 'me' ) {
         my ($method) = ( caller(1) )[3];
         GeoIP2::Error::Generic->throw(
-            message => "me is not a valid IP when calling $method on "
+                  message => "me is not a valid IP when calling $method on "
                 . __PACKAGE__ );
     }
 
@@ -74,7 +75,7 @@ sub _model_for_address {
     $record->{traits} ||= {};
     $record->{traits}{ip_address} = $ip;
 
-    return $model_class->new( %{$record}, languages => $self->languages, );
+    return $model_class->new( %{$record}, locales => $self->locales, );
 }
 
 sub city {
@@ -111,7 +112,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 0.040000
+version 0.040001
 
 =head1 SYNOPSIS
 
@@ -120,8 +121,8 @@ version 0.040000
   use GeoIP2::Database::Reader;
 
   my $reader = GeoIP2::Database::Reader->new(
-      file      => '/path/to/database',
-      languages => [ 'en', 'de', ]
+      file    => '/path/to/database',
+      locales => [ 'en', 'de', ]
   );
 
   my $omni = $reader->omni( ip => '24.24.24.24' );
@@ -149,7 +150,7 @@ all of the attributes for that record class will be empty.
 =head1 USAGE
 
 The basic API for this class is the same for all database types.  First you
-create a database reader object with your C<file> and C<language> params.
+create a database reader object with your C<file> and C<locale> params.
 Then you call the method corresponding to your database type, passing it the
 IP address you want to look up.
 
@@ -173,21 +174,21 @@ This method creates a new object. It accepts the following arguments:
 
 This is the path to the GeoIP2 database file which you'd like to query.
 
-=item * languages
+=item * locales
 
-This is an array reference where each value is a string indicating a language.
+This is an array reference where each value is a string indicating a locale.
 This argument will be passed on to record classes to use when their C<name()>
 methods are called.
 
-The order of the languages is significant. When a record class has multiple
+The order of the locales is significant. When a record class has multiple
 names (country, city, etc.), its C<name()> method will look at each element of
-this array ref and return the first language for which it has a name.
+this array ref and return the first locale for which it has a name.
 
-Note that the only language which is always present in the GeoIP2 data in
-"en". If you do not include this language, the C<name()> method may end up
-returning C<undef> even when the record in question has an English name.
+Note that the only locale which is always present in the GeoIP2 data in "en".
+If you do not include this locale, the C<name()> method may end up returning
+C<undef> even when the record in question has an English name.
 
-Currently, the valid list of language codes is:
+Currently, the valid list of locale codes is:
 
 =over 8
 
@@ -212,7 +213,7 @@ spelling in English. In other words, English does not mean ASCII.
 
 =back
 
-Passing any other language code will result in an error.
+Passing any other locale code will result in an error.
 
 The default value for this argument is C<['en']>.
 
@@ -308,7 +309,7 @@ Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by MaxMind, Inc..
+This software is copyright (c) 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

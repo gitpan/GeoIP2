@@ -1,6 +1,6 @@
 package GeoIP2::Role::Error::HTTP;
 {
-  $GeoIP2::Role::Error::HTTP::VERSION = '0.040000';
+  $GeoIP2::Role::Error::HTTP::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::Role::Error::HTTP::AUTHORITY = 'cpan:TJMATHER';

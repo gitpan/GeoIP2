@@ -1,6 +1,6 @@
 package GeoIP2::Role::Model::HasSubdivisions;
 {
-  $GeoIP2::Role::Model::HasSubdivisions::VERSION = '0.040000';
+  $GeoIP2::Role::Model::HasSubdivisions::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::Role::Model::HasSubdivisions::AUTHORITY = 'cpan:TJMATHER';
@@ -15,7 +15,7 @@ use Sub::Quote qw( quote_sub );
 
 use Moo::Role;
 
-with 'GeoIP2::Role::HasLanguages';
+with 'GeoIP2::Role::HasLocales';
 
 has _raw_subdivisions => (
     is       => 'ro',
@@ -54,7 +54,7 @@ sub _build_subdivisions {
         map {
             GeoIP2::Record::Subdivision->new(
                 %{$_},
-                languages => $self->languages(),
+                locales => $self->locales(),
             );
         } @{ $self->_raw_subdivisions() }
     ];
@@ -67,7 +67,7 @@ sub _build_most_specific_subdivision {
     return $subdivisions[-1] if @subdivisions;
 
     return GeoIP2::Record::Subdivision->new(
-        languages => $self->languages(),
+        locales => $self->locales(),
     );
 }
 

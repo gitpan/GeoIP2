@@ -1,6 +1,6 @@
 package GeoIP2::Model::Country;
 {
-  $GeoIP2::Model::Country::VERSION = '0.040000';
+  $GeoIP2::Model::Country::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::Model::Country::AUTHORITY = 'cpan:TJMATHER';
@@ -33,7 +33,7 @@ GeoIP2::Model::Country - Model class for the GeoIP2 Country end point
 
 =head1 VERSION
 
-version 0.040000
+version 0.040001
 
 =head1 SYNOPSIS
 
@@ -119,7 +119,7 @@ Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by MaxMind, Inc..
+This software is copyright (c) 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

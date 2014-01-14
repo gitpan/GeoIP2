@@ -1,6 +1,6 @@
 package GeoIP2::Record::Continent;
 {
-  $GeoIP2::Record::Continent::VERSION = '0.040000';
+  $GeoIP2::Record::Continent::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::Record::Continent::AUTHORITY = 'cpan:TJMATHER';
@@ -41,7 +41,7 @@ GeoIP2::Record::Continent - Contains data for the continent record associated wi
 
 =head1 VERSION
 
-version 0.040000
+version 0.040001
 
 =head1 SYNOPSIS
 
@@ -84,21 +84,21 @@ This attribute is returned by all end points.
 
 =head2 $continent_rec->name()
 
-This returns a name for the continent. The language chosen depends on the
-C<languages> argument that was passed to the record's constructor. This will
-be passed through from the L<GeoIP2::WebService::Client> object you used to
-fetch the data that populated this record.
+This returns a name for the continent. The locale chosen depends on the
+C<locales> argument that was passed to the record's constructor. This will be
+passed through from the L<GeoIP2::WebService::Client> object you used to fetch
+the data that populated this record.
 
-If the record does not have a name in any of the languages you asked for, this
+If the record does not have a name in any of the locales you asked for, this
 method returns C<undef>.
 
 This attribute is returned by all end points.
 
 =head2 $continent_rec->names()
 
-This returns a hash reference where the keys are language codes and the values
+This returns a hash reference where the keys are locale codes and the values
 are names. See L<GeoIP2::WebService::Client> for a list of the possible
-language codes.
+locale codes.
 
 This attribute is returned by all end points.
 
@@ -126,7 +126,7 @@ Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by MaxMind, Inc..
+This software is copyright (c) 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

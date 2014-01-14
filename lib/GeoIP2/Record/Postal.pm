@@ -1,6 +1,6 @@
 package GeoIP2::Record::Postal;
 {
-  $GeoIP2::Record::Postal::VERSION = '0.040000';
+  $GeoIP2::Record::Postal::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::Record::Postal::AUTHORITY = 'cpan:TJMATHER';
@@ -14,8 +14,8 @@ use GeoIP2::Types qw( NonNegativeInt Str );
 use Moo;
 
 has code => (
-    is       => 'ro',
-    isa      => Str,
+    is        => 'ro',
+    isa       => Str,
     predicate => 'has_code',
 );
 
@@ -39,7 +39,7 @@ GeoIP2::Record::Postal - Contains data for the postal code record associated wit
 
 =head1 VERSION
 
-version 0.040000
+version 0.040001
 
 =head1 SYNOPSIS
 
@@ -106,7 +106,7 @@ Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by MaxMind, Inc..
+This software is copyright (c) 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -63,6 +63,7 @@ geoname_id
 hostname
 ip
 ja
+libmaxminddb
 lookup
 maxmind
 omni

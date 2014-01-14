@@ -29,7 +29,7 @@ lib/GeoIP2/Record/RepresentedCountry.pm
 lib/GeoIP2/Record/Subdivision.pm
 lib/GeoIP2/Record/Traits.pm
 lib/GeoIP2/Role/Error/HTTP.pm
-lib/GeoIP2/Role/HasLanguages.pm
+lib/GeoIP2/Role/HasLocales.pm
 lib/GeoIP2/Role/Model.pm
 lib/GeoIP2/Role/Model/HasSubdivisions.pm
 lib/GeoIP2/Role/Record/Country.pm

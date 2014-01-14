@@ -1,6 +1,6 @@
 package GeoIP2;
 {
-  $GeoIP2::VERSION = '0.040000';
+  $GeoIP2::VERSION = '0.040001';
 }
 BEGIN {
   $GeoIP2::AUTHORITY = 'cpan:TJMATHER';
@@ -22,18 +22,18 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 =head1 VERSION
 
-version 0.040000
+version 0.040001
 
 =head1 DESCRIPTION
 
-This distribution provides an API for the GeoIP2 web services (as documented
-at L<http://dev.maxmind.com/geoip/geoip2/web-services>) and downloadable
-databases.
+This distribution provides an API for the GeoIP2
+L<web services|http://dev.maxmind.com/geoip/geoip2/web-services> and
+L<databases|http://dev.maxmind.com/geoip/geoip2/downloadable>. The API also
+works with the free
+L<GeoLite2 databases|http://dev.maxmind.com/geoip/geoip2/geolite2/>.
 
 See L<GeoIP2::WebService::Client> for details on the web service client API
-and L<GeoIP2::Database::Reader> for the database API. The only downloadable
-database currently available is GeoLite2 City. See
-L<http://dev.maxmind.com/geoip/geoip2/geolite2/> for details.
+and L<GeoIP2::Database::Reader> for the database API.
 
 =head1 BETA NOTE
 
@@ -43,8 +43,14 @@ release, which will be numbered 2.0000.
 You may find information on the GeoIP2 beta release process on
 L<our website|http://www.maxmind.com/en/geoip2_beta>.
 
-To provide feedback or get support during the beta, please see the
-L<MaxMind Customer Community|https://getsatisfaction.com/maxmind>.
+=head1 SPEEDING UP DATABASE READING
+
+This module only depends on the pure Perl implementation of the MaxMind
+database reader (L<MaxMind::DB::Reader>). If you install the libmaxminddb
+library (L<http://maxmind.github.io/libmaxminddb/>) and
+L<MaxMind::DB::Reader::XS>, then the XS implementation will be loaded
+automatically. The XS implementation is approximately 60x faster than the pure
+Perl implementation.
 
 =head1 INTEGRATION WITH GEONAMES
 
@@ -90,9 +96,9 @@ earlier versions of Perl 5.8 will be applied. We will not accept patches to
 support any version of Perl before 5.8.
 
 The data returned from the GeoIP2 web services includes Unicode characters in
-several languages. This may expose bugs in earlier versions of Perl. If
-Unicode support is important to you, we recommend that you use the most recent
-version of Perl available.
+several locales. This may expose bugs in earlier versions of Perl. If Unicode
+support is important to you, we recommend that you use the most recent version
+of Perl available.
 
 =head1 SUPPORT
 
@@ -126,7 +132,7 @@ Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by MaxMind, Inc..
+This software is copyright (c) 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
