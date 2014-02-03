@@ -1,15 +1,9 @@
 package GeoIP2::Record::Traits;
-{
-  $GeoIP2::Record::Traits::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Record::Traits::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Record::Traits::VERSION = '0.040002';
 use strict;
 use warnings;
 
-use GeoIP2::Types qw( Bool IPAddress NonNegativeInt Str );
+use GeoIP2::Types qw( Bool BoolCoercion IPAddress NonNegativeInt Str );
 use Sub::Quote qw( quote_sub );
 
 use Moo;
@@ -42,12 +36,14 @@ has is_anonymous_proxy => (
     is      => 'ro',
     isa     => Bool,
     default => quote_sub(q{ 0 }),
+    coerce  => BoolCoercion,
 );
 
 has is_satellite_provider => (
     is      => 'ro',
     isa     => Bool,
     default => quote_sub(q{ 0 }),
+    coerce  => BoolCoercion,
 );
 
 has isp => (
@@ -82,7 +78,7 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 0.040001
+version 0.040002
 
 =head1 SYNOPSIS
 

@@ -1,11 +1,5 @@
 package GeoIP2::Role::Model;
-{
-  $GeoIP2::Role::Model::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Role::Model::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Role::Model::VERSION = '0.040002';
 use strict;
 use warnings;
 

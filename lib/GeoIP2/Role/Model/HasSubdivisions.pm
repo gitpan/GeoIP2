@@ -1,11 +1,5 @@
 package GeoIP2::Role::Model::HasSubdivisions;
-{
-  $GeoIP2::Role::Model::HasSubdivisions::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Role::Model::HasSubdivisions::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Role::Model::HasSubdivisions::VERSION = '0.040002';
 use strict;
 use warnings;
 

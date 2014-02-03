@@ -1,11 +1,5 @@
 package GeoIP2::Error::HTTP;
-{
-  $GeoIP2::Error::HTTP::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Error::HTTP::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Error::HTTP::VERSION = '0.040002';
 use strict;
 use warnings;
 
@@ -29,7 +23,7 @@ GeoIP2::Error::HTTP - An HTTP transport error
 
 =head1 VERSION
 
-version 0.040001
+version 0.040002
 
 =head1 SYNOPSIS
 

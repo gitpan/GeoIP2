@@ -1,11 +1,5 @@
 package GeoIP2::Error::IPAddressNotFound;
-{
-  $GeoIP2::Error::IPAddressNotFound::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Error::IPAddressNotFound::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Error::IPAddressNotFound::VERSION = '0.040002';
 use strict;
 use warnings;
 
@@ -35,7 +29,7 @@ GeoIP2::Error::IPAddressNotFound - An exception thrown when an IP address is not
 
 =head1 VERSION
 
-version 0.040001
+version 0.040002
 
 =head1 SYNOPSIS
 

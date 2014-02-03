@@ -1,11 +1,5 @@
 package GeoIP2;
-{
-  $GeoIP2::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::VERSION = '0.040002';
 use 5.008;
 
 1;
@@ -22,7 +16,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 =head1 VERSION
 
-version 0.040001
+version 0.040002
 
 =head1 DESCRIPTION
 

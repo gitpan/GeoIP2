@@ -1,11 +1,5 @@
 package GeoIP2::Role::Record::HasNames;
-{
-  $GeoIP2::Role::Record::HasNames::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Role::Record::HasNames::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Role::Record::HasNames::VERSION = '0.040002';
 use strict;
 use warnings;
 

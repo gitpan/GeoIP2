@@ -1,11 +1,5 @@
 package GeoIP2::Role::HasLocales;
-{
-  $GeoIP2::Role::HasLocales::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Role::HasLocales::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Role::HasLocales::VERSION = '0.040002';
 use strict;
 use warnings;
 

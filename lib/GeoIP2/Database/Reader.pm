@@ -1,11 +1,5 @@
 package GeoIP2::Database::Reader;
-{
-  $GeoIP2::Database::Reader::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Database::Reader::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Database::Reader::VERSION = '0.040002';
 use strict;
 use warnings;
 
@@ -112,7 +106,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 0.040001
+version 0.040002
 
 =head1 SYNOPSIS
 

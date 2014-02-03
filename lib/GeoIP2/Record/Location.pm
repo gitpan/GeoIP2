@@ -1,11 +1,5 @@
 package GeoIP2::Record::Location;
-{
-  $GeoIP2::Record::Location::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Record::Location::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Record::Location::VERSION = '0.040002';
 use strict;
 use warnings;
 
@@ -57,7 +51,7 @@ GeoIP2::Record::Location - Contains data for the location record associated with
 
 =head1 VERSION
 
-version 0.040001
+version 0.040002
 
 =head1 SYNOPSIS
 

@@ -1,11 +1,5 @@
 package GeoIP2::Role::Record::Country;
-{
-  $GeoIP2::Role::Record::Country::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Role::Record::Country::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Role::Record::Country::VERSION = '0.040002';
 use strict;
 use warnings;
 

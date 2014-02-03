@@ -1,11 +1,5 @@
 package GeoIP2::Record::Country;
-{
-  $GeoIP2::Record::Country::VERSION = '0.040001';
-}
-BEGIN {
-  $GeoIP2::Record::Country::AUTHORITY = 'cpan:TJMATHER';
-}
-
+$GeoIP2::Record::Country::VERSION = '0.040002';
 use strict;
 use warnings;
 
@@ -27,7 +21,7 @@ GeoIP2::Record::Country - Contains data for the country record associated with a
 
 =head1 VERSION
 
-version 0.040001
+version 0.040002
 
 =head1 SYNOPSIS
 
