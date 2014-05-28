@@ -1,5 +1,5 @@
 package GeoIP2;
-$GeoIP2::VERSION = '0.040002';
+$GeoIP2::VERSION = '0.040003';
 use 5.008;
 
 1;
@@ -16,7 +16,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 =head1 VERSION
 
-version 0.040002
+version 0.040003
 
 =head1 DESCRIPTION
 
@@ -43,8 +43,8 @@ This module only depends on the pure Perl implementation of the MaxMind
 database reader (L<MaxMind::DB::Reader>). If you install the libmaxminddb
 library (L<http://maxmind.github.io/libmaxminddb/>) and
 L<MaxMind::DB::Reader::XS>, then the XS implementation will be loaded
-automatically. The XS implementation is approximately 60x faster than the pure
-Perl implementation.
+automatically. The XS implementation is approximately 100x faster than the
+pure Perl implementation.
 
 =head1 INTEGRATION WITH GEONAMES
 
@@ -97,7 +97,7 @@ of Perl available.
 =head1 SUPPORT
 
 Please report all issues with this code using the GitHub issue tracker at
-L<https://github.com/maxmind/GeoIP2-perl/issues>
+L<https://github.com/maxmind/GeoIP2-perl/issues>.
 
 If you are having an issue with a MaxMind service that is not specific to the
 client API please see L<http://www.maxmind.com/en/support> for details.

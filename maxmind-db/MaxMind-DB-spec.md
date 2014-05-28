@@ -1,4 +1,9 @@
-# MaxMind DB Format
+---
+layout: default
+title: MaxMind DB File Format Specification
+version: v2.0
+---
+# MaxMind DB File Format Specification
 
 ## Version
 
@@ -35,11 +40,18 @@ allow for arbitrary binary data in the data section, some other piece of data
 could contain these values. This is why you need to find the last occurrence
 of this sequence.
 
+The maximum allowable size for the metadata section, including the marker that
+starts the metadata, is 128kb.
+
 The metadata is stored as a map data structure. This structure is described
 later in the spec. Changing a key's data type or removing a key would
 consistute a major version change for this spec.
 
-Adding a key constitutes a minor version change.
+Except where otherwise specified, each key listed is required for the database
+to be considered valid.
+
+Adding a key constitutes a minor version change. Removing a key or changing
+its type constitutes a major version change.
 
 The list of known keys for the current version of the format is as follows:
 
@@ -88,8 +100,8 @@ database's binary format.
 
 ### build\_epoch
 
-This is an unsigned 64-bit integer that contains database build timestamp as a
-Unix epoch value.
+This is an unsigned 64-bit integer that contains the database build timestamp
+as a Unix epoch value.
 
 ### description
 
@@ -101,7 +113,8 @@ The codes may include additional information such as script or country
 identifiers, like "zh-TW" or "mn-Cyrl-MN". The additional identifiers will be
 separated by a dash character ("-").
 
-The only language code we guarantee to include is "en" (English).
+This is key is optional. However, creators of databases are strongly
+encouraged to include a description in at least one language.
 
 ### Calculating the Search Tree Section Size
 
@@ -228,7 +241,7 @@ Creators of databases should decide on a strategy for handling the various
 mappings between IPv4 and IPv6.
 
 The strategy that MaxMind uses for its GeoIP databases is to include a pointer
-from the `::ffff:0:0/80` subnet to the root node of the IPv4 address space in
+from the `::ffff:0:0/96` subnet to the root node of the IPv4 address space in
 the tree. This accounts for the
 [IPv4-mapped IPv6 address](http://en.wikipedia.org/wiki/IPv6#IPv4-mapped_IPv6_addresses).
 
@@ -276,7 +289,8 @@ beginning of the file.
 
 ### UTF-8 string - 2
 
-A variable length byte sequence that contains valid utf8.
+A variable length byte sequence that contains valid utf8. If the length is
+zero then this is an empty string.
 
 ### double - 3
 
@@ -285,7 +299,8 @@ length of a double is always 8 bytes.
 
 ### bytes - 4
 
-A variable length byte sequence containing any sort of binary data.
+A variable length byte sequence containing any sort of binary data. If the
+length is zero then this a zero-length byte sequence.
 
 This is not currently used but may be used in the future to embed non-text
 data (images, etc.).
@@ -301,7 +316,9 @@ A 128-bit integer can use up to 16 bytes, but may use fewer. Similarly, a
 32-bit integer may use from 0-4 bytes. The number of bytes used is determined
 by the length specifier in the control byte. See below for details.
 
-When storing a signed integer, the left-most bit is the sign. A 1 is negative,
+A length of zero always indicates the number 0.
+
+When storing a signed integer, the left-most bit is the sign. A 1 is negative
 and a 0 is positive.
 
 The type numbers for our integer types are:
@@ -321,7 +338,7 @@ The signed 32-bit integers are stored using the 2's complement representation.
 
 A map data type contains a set of key/value pairs. Unlike other data types,
 the length information for maps indicates how many key/value pairs it
-contains, not its length in bytes.
+contains, not its length in bytes. This size can be zero.
 
 See below for the algorithm used to determine the number of pairs in the
 hash. This algorithm is also used to determine the length of a field's
@@ -330,7 +347,8 @@ payload.
 ### array - 11
 
 An array type contains a set of ordered values. The length information for
-arrays indicates how many values it contains, not its length in bytes.
+arrays indicates how many values it contains, not its length in bytes. This
+size can be zero.
 
 This type uses the same algorithm as maps for determining the length of a
 field's payload.
@@ -397,7 +415,7 @@ tell us the type:
     001XXXXX          pointer
     010XXXXX          UTF-8 string
     010XXXXX          unsigned 32-bit int (ASCII)
-    000XXXXX 00001010 unsigned 128-bit int (binary)
+    000XXXXX 00000011 unsigned 128-bit int (binary)
     000XXXXX 00000100 array
     000XXXXX 00000110 end marker
 
@@ -413,7 +431,7 @@ bytes. For example:
     01000010          UTF-8 string - 2 bytes long
     01011100          UTF-8 string - 28 bytes long
     11000001          unsigned 32-bit int - 1 byte long
-    00000011 00001010 unsigned 128-bit int - 3 bytes long
+    00000011 00000011 unsigned 128-bit int - 3 bytes long
 
 If the five bits are equal to 29, 30, or 31, then use the following algorithm
 to calculate the payload size.
@@ -429,11 +447,11 @@ type specifying bytes as a single unsigned integer*.
 
 Some examples:
 
-    01011101 00110011 UTF-8 string - 70 bytes long
+    01011101 00110011 UTF-8 string - 80 bytes long
 
 In this case, the last five bits of the control byte equal 29. We treat the
 next byte as an unsigned integer. The next byte is 51, so the total size is
-(29 + 51) = 70.
+(29 + 51) = 80.
 
     01011110 00110011 00110011 UTF-8 string - 13,392 bytes long
 
@@ -498,3 +516,11 @@ are ignored.
 
 This means that we are limited to 4GB of address space for pointers, so the
 data section size for the database is limited to 4GB.
+
+## License
+
+This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
+Unported License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative
+Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA
+

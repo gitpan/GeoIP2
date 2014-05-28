@@ -1,5 +1,5 @@
 package GeoIP2::Record::Traits;
-$GeoIP2::Record::Traits::VERSION = '0.040002';
+$GeoIP2::Record::Traits::VERSION = '0.040003';
 use strict;
 use warnings;
 
@@ -78,7 +78,7 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 0.040002
+version 0.040003
 
 =head1 SYNOPSIS
 

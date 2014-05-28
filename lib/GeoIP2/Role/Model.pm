@@ -1,8 +1,9 @@
 package GeoIP2::Role::Model;
-$GeoIP2::Role::Model::VERSION = '0.040002';
+$GeoIP2::Role::Model::VERSION = '0.040003';
 use strict;
 use warnings;
 
+use B;
 use GeoIP2::Record::City;
 use GeoIP2::Record::Continent;
 use GeoIP2::Record::Country;

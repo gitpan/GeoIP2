@@ -1,5 +1,5 @@
 package GeoIP2::Model::City;
-$GeoIP2::Model::City::VERSION = '0.040002';
+$GeoIP2::Model::City::VERSION = '0.040003';
 use strict;
 use warnings;
 
@@ -26,7 +26,7 @@ GeoIP2::Model::City - Model class for the GeoIP2 Precision City end point
 
 =head1 VERSION
 
-version 0.040002
+version 0.040003
 
 =head1 SYNOPSIS
 

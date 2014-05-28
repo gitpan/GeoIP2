@@ -5,52 +5,52 @@ author:
   - 'Greg Oschwald <goschwald@maxmind.com>'
   - 'Olaf Alders <oalders@maxmind.com>'
 build_requires:
-  B: 0
-  HTTP::Status: 0
-  IO::Compress::Gzip: 0
-  Path::Class: 0
-  Test::Fatal: 0
-  Test::More: 0.88
-  base: 0
-  utf8: 0
+  HTTP::Status: '0'
+  IO::Compress::Gzip: '0'
+  Path::Class: '0'
+  Test::Fatal: '0'
+  Test::More: '0.88'
+  base: '0'
+  utf8: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
+  ExtUtils::MakeMaker: '6.30'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.012, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.131560'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: GeoIP2
 requires:
-  Carp: 0
-  Data::Dumper: 0
-  Data::Validate::IP: 0.19
-  Exporter: 0
-  Getopt::Long: 0
-  JSON: 0
-  LWP::Protocol::https: 0
-  LWP::UserAgent: 0
-  List::MoreUtils: 0
-  List::Util: 0
-  MIME::Base64: 0
-  MaxMind::DB::Reader: 0
-  Moo: 0
-  Moo::Role: 0
-  Params::Validate: 0
-  Scalar::Util: 0
-  Sub::Quote: 0
-  Throwable::Error: 0
-  Try::Tiny: 0
-  URI: 0
-  lib: 0
-  perl: 5.008
-  strict: 0
-  warnings: 0
+  B: '0'
+  Carp: '0'
+  Data::Dumper: '0'
+  Data::Validate::IP: '0.19'
+  Exporter: '0'
+  Getopt::Long: '0'
+  JSON: '0'
+  LWP::Protocol::https: '0'
+  LWP::UserAgent: '0'
+  List::MoreUtils: '0'
+  List::Util: '0'
+  MIME::Base64: '0'
+  MaxMind::DB::Reader: '0'
+  Moo: '0'
+  Moo::Role: '0'
+  Params::Validate: '0'
+  Scalar::Util: '0'
+  Sub::Quote: '0'
+  Throwable::Error: '0'
+  Try::Tiny: '0'
+  URI: '0'
+  lib: '0'
+  perl: '5.008'
+  strict: '0'
+  warnings: '0'
 resources:
   bugtracker: https://github.com/maxmind/GeoIP2-perl/issues
   repository: git://github.com/maxmind/GeoIP2-perl.git
-version: 0.040002
+version: '0.040003'
 x_authority: cpan:TJMATHER
 x_contributors:
   - 'Graham Knop <haarg@haarg.org>'

@@ -1,5 +1,5 @@
 package GeoIP2::Role::Model::HasSubdivisions;
-$GeoIP2::Role::Model::HasSubdivisions::VERSION = '0.040002';
+$GeoIP2::Role::Model::HasSubdivisions::VERSION = '0.040003';
 use strict;
 use warnings;
 
