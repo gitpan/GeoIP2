@@ -1,5 +1,5 @@
 package GeoIP2::Model::City;
-$GeoIP2::Model::City::VERSION = '0.040003';
+$GeoIP2::Model::City::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -8,13 +8,13 @@ use Sub::Quote qw( quote_sub );
 
 use Moo;
 
-with 'GeoIP2::Role::Model', 'GeoIP2::Role::Model::HasSubdivisions';
+with 'GeoIP2::Role::Model::Location', 'GeoIP2::Role::Model::HasSubdivisions';
 
 __PACKAGE__->_define_attributes_for_keys( __PACKAGE__->_all_record_names() );
 
 1;
 
-# ABSTRACT: Model class for the GeoIP2 Precision City end point
+# ABSTRACT: Model class for GeoIP2 Precision: City and GeoIP2 City
 
 __END__
 
@@ -22,11 +22,11 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Model::City - Model class for the GeoIP2 Precision City end point
+GeoIP2::Model::City - Model class for GeoIP2 Precision: City and GeoIP2 City
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -46,11 +46,11 @@ version 0.040003
 
 =head1 DESCRIPTION
 
-This class provides a model for the data returned by the GeoIP2 Precision
-City end point.
+This class provides a model for the data returned by the GeoIP2 Precision:
+City web service and the GeoIP2 City database.
 
-The only difference between the City, City/ISP/Org, and Omni model classes is
-which fields in each record may be populated. See
+The only difference between the City and Insights model classes is which
+fields in each record may be populated. See
 L<http://dev.maxmind.com/geoip/geoip2/web-services> for more details.
 
 =head1 METHODS
@@ -100,7 +100,7 @@ user's country.
 
 Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
 represented by the requested IP address. The represented country may differ
-from the C<country> for things like military bases or embassies.
+from the C<country> for things like military bases.
 
 =head2 $city->subdivisions()
 
@@ -147,10 +147,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

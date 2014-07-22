@@ -1,5 +1,5 @@
 package GeoIP2::Record::Location;
-$GeoIP2::Record::Location::VERSION = '0.040003';
+$GeoIP2::Record::Location::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -51,7 +51,7 @@ GeoIP2::Record::Location - Contains data for the location record associated with
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -84,7 +84,7 @@ This class provides the following methods:
 This returns the radius in kilometers around the specified location where the
 IP address is likely to be.
 
-This attribute is only available from the Omni end point.
+This attribute is only available from the Insights end point.
 
 =head2 $location_rec->latitude()
 
@@ -130,10 +130,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,5 +1,5 @@
 package GeoIP2::Types;
-$GeoIP2::Types::VERSION = '0.040003';
+$GeoIP2::Types::VERSION = '0.040004';
 use strict;
 use warnings;
 

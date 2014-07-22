@@ -1,5 +1,5 @@
 package GeoIP2::Record::RepresentedCountry;
-$GeoIP2::Record::RepresentedCountry::VERSION = '0.040003';
+$GeoIP2::Record::RepresentedCountry::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -29,7 +29,7 @@ GeoIP2::Record::RepresentedCountry - Contains data for the represented country r
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -52,7 +52,7 @@ version 0.040003
 
 This class contains the country-level data associated with an IP address for
 the IP's represented country. The represented country is the country
-represented by something like a military base or embassy.
+represented by something like a military base.
 
 This record is returned by all the end points.
 
@@ -65,7 +65,7 @@ This class provides the following methods:
 This returns a value from 0-100 indicating MaxMind's confidence that the
 country is correct.
 
-This attribute is only available from the Omni end point.
+This attribute is only available from the Insights end point.
 
 =head2 $country_rec->geoname_id()
 
@@ -104,7 +104,7 @@ This attribute is returned by all end points.
 
 This returns a string indicating the type of entity that is representing the
 country. Currently we only return C<military> but this could expand to include
-other types such as C<embassy> in the future.
+other types in the future.
 
 This attribute is returned by all end points.
 
@@ -125,10 +125,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

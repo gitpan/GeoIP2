@@ -23,7 +23,7 @@ my %country = (
         names      => { en => 'United States of America' },
     },
     traits => {
-        ip_address => '1.2.3.4',
+        ip_address         => '1.2.3.4',
         is_anonymous_proxy => JSON::true
     },
 );
@@ -377,7 +377,7 @@ my $ua = Mock::LWP::UserAgent->new(
 
             is(
                 $request->uri(),
-                'https://geoip.maxmind.com/geoip/v2.0/country/1.2.3.4',
+                'https://geoip.maxmind.com/geoip/v2.1/country/1.2.3.4',
                 'got expected URI for Country request'
             );
 
@@ -455,7 +455,7 @@ my $ua = Mock::LWP::UserAgent->new(
 
     like(
         $e->message(),
-        qr{\QReceived a 406 error for https://geoip.maxmind.com/geoip/v2.0/country/1.2.3.12 with the following body: Cannot satisfy your Accept-Charset requirements},
+        qr{\QReceived a 406 error for https://geoip.maxmind.com/geoip/v2.1/country/1.2.3.12 with the following body: Cannot satisfy your Accept-Charset requirements},
         'error contains expected text'
     );
 

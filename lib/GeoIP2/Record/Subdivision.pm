@@ -1,5 +1,5 @@
 package GeoIP2::Record::Subdivision;
-$GeoIP2::Record::Subdivision::VERSION = '0.040003';
+$GeoIP2::Record::Subdivision::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -41,7 +41,7 @@ GeoIP2::Record::Subdivision - Contains data for the subdivision record associate
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -76,7 +76,7 @@ This class provides the following methods:
 This returns a value from 0-100 indicating MaxMind's confidence that the
 subdivision is correct.
 
-This attribute is only available from the Omni end point.
+This attribute is only available from the Insights end point.
 
 =head2 $subdivision_rec->geoname_id()
 
@@ -128,10 +128,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

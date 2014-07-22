@@ -9,7 +9,7 @@ BEGIN {
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::NoTabsTests 0.06
+# this test was generated with Dist::Zilla::Plugin::Test::NoTabs 0.05
 
 use Test::More 0.88;
 use Test::NoTabs;
@@ -24,9 +24,11 @@ my @files = (
     'lib/GeoIP2/Error/Type.pm',
     'lib/GeoIP2/Error/WebService.pm',
     'lib/GeoIP2/Model/City.pm',
-    'lib/GeoIP2/Model/CityISPOrg.pm',
+    'lib/GeoIP2/Model/ConnectionType.pm',
     'lib/GeoIP2/Model/Country.pm',
-    'lib/GeoIP2/Model/Omni.pm',
+    'lib/GeoIP2/Model/Domain.pm',
+    'lib/GeoIP2/Model/ISP.pm',
+    'lib/GeoIP2/Model/Insights.pm',
     'lib/GeoIP2/Record/City.pm',
     'lib/GeoIP2/Record/Continent.pm',
     'lib/GeoIP2/Record/Country.pm',
@@ -37,9 +39,12 @@ my @files = (
     'lib/GeoIP2/Record/Subdivision.pm',
     'lib/GeoIP2/Record/Traits.pm',
     'lib/GeoIP2/Role/Error/HTTP.pm',
+    'lib/GeoIP2/Role/HasIPAddress.pm',
     'lib/GeoIP2/Role/HasLocales.pm',
     'lib/GeoIP2/Role/Model.pm',
+    'lib/GeoIP2/Role/Model/Flat.pm',
     'lib/GeoIP2/Role/Model/HasSubdivisions.pm',
+    'lib/GeoIP2/Role/Model/Location.pm',
     'lib/GeoIP2/Role/Record/Country.pm',
     'lib/GeoIP2/Role/Record/HasNames.pm',
     'lib/GeoIP2/Types.pm',

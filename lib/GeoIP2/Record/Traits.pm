@@ -1,5 +1,5 @@
 package GeoIP2::Record::Traits;
-$GeoIP2::Record::Traits::VERSION = '0.040003';
+$GeoIP2::Record::Traits::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -8,11 +8,7 @@ use Sub::Quote qw( quote_sub );
 
 use Moo;
 
-has ip_address => (
-    is       => 'ro',
-    isa      => IPAddress,
-    required => 1,
-);
+with 'GeoIP2::Role::HasIPAddress';
 
 has autonomous_system_number => (
     is        => 'ro',
@@ -78,7 +74,7 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -112,7 +108,8 @@ This returns the autonomous system number
 (L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) associated with
 the IP address.
 
-This attribute is only available from the City/ISP/Org and Omni end points.
+This attribute is only available from the City and Insights web service
+endpoints.
 
 =head2 $traits_rec->autonomous_system_organization()
 
@@ -120,14 +117,16 @@ This returns the organization associated with the registered autonomous system
 number (L<http://en.wikipedia.org/wiki/Autonomous_system_(Internet)>) for the IP
 address.
 
-This attribute is only available from the City/ISP/Org and Omni end points.
+This attribute is only available from the City and Insights web service
+endpoints.
 
 =head2 $traits_rec->domain()
 
 This returns the second level domain associated with the IP address. This will
 be something like "example.com" or "example.co.uk", not "foo.example.com".
 
-This attribute is only available from the City/ISP/Org and Omni end points.
+This attribute is only available from the City and Insights web service
+endpoints.
 
 =head2 $traits_rec->ip_address()
 
@@ -156,13 +155,15 @@ This attribute is returned by all end points.
 
 This returns the name of the ISP associated with the IP address.
 
-This attribute is only available from the City/ISP/Org and Omni end points.
+This attribute is only available from the City and Insights web service
+endpoints.
 
 =head2 $traits_rec->organization()
 
 This returns the name of the organization associated with the IP address.
 
-This attribute is only available from the City/ISP/Org and Omni end points.
+This attribute is only available from the City and Insights web service
+endpoints.
 
 =head2 $traits_rec->user_type()
 
@@ -203,7 +204,7 @@ the following values:
 
 =back
 
-This attribute is only available from the Omni end point.
+This attribute is only available from the Insights end point.
 
 =head1 AUTHORS
 
@@ -222,10 +223,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

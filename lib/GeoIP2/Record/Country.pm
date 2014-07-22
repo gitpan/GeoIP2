@@ -1,5 +1,5 @@
 package GeoIP2::Record::Country;
-$GeoIP2::Record::Country::VERSION = '0.040003';
+$GeoIP2::Record::Country::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -21,7 +21,7 @@ GeoIP2::Record::Country - Contains data for the country record associated with a
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -54,7 +54,7 @@ This class provides the following methods:
 This returns a value from 0-100 indicating MaxMind's confidence that the
 country is correct.
 
-This attribute is only available from the Omni end point.
+This attribute is only available from the Insights end point.
 
 =head2 $country_rec->geoname_id()
 
@@ -106,10 +106,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

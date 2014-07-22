@@ -1,5 +1,5 @@
 package GeoIP2::Record::Postal;
-$GeoIP2::Record::Postal::VERSION = '0.040003';
+$GeoIP2::Record::Postal::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -33,7 +33,7 @@ GeoIP2::Record::Postal - Contains data for the postal code record associated wit
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -74,7 +74,7 @@ This attribute is returned by all end points except the Country end point.
 This returns a value from 0-100 indicating MaxMind's confidence that the
 postal code is correct.
 
-This attribute is only available from the Omni end point.
+This attribute is only available from the Insights end point.
 
 =head1 AUTHORS
 
@@ -93,10 +93,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

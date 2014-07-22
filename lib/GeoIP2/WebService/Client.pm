@@ -1,5 +1,5 @@
 package GeoIP2::WebService::Client;
-$GeoIP2::WebService::Client::VERSION = '0.040003';
+$GeoIP2::WebService::Client::VERSION = '0.040004';
 use 5.008;
 
 use strict;
@@ -11,9 +11,8 @@ use GeoIP2::Error::HTTP;
 use GeoIP2::Error::IPAddressNotFound;
 use GeoIP2::Error::WebService;
 use GeoIP2::Model::City;
-use GeoIP2::Model::CityISPOrg;
 use GeoIP2::Model::Country;
-use GeoIP2::Model::Omni;
+use GeoIP2::Model::Insights;
 use GeoIP2::Types
     qw( JSONObject MaxMindID MaxMindLicenseKey Str URIObject UserAgentObject );
 use JSON;
@@ -110,9 +109,15 @@ sub city {
 sub city_isp_org {
     my $self = shift;
 
+    return $self->city(@_);
+}
+
+sub insights {
+    my $self = shift;
+
     return $self->_response_for(
-        'city_isp_org',
-        'GeoIP2::Model::CityISPOrg',
+        'insights',
+        'GeoIP2::Model::Insights',
         @_,
     );
 }
@@ -120,11 +125,7 @@ sub city_isp_org {
 sub omni {
     my $self = shift;
 
-    return $self->_response_for(
-        'omni',
-        'GeoIP2::Model::Omni',
-        @_,
-    );
+    return $self->insights(@_);
 }
 
 my %spec = (
@@ -300,7 +301,7 @@ sub _handle_non_200_status {
 sub _build_base_uri {
     my $self = shift;
 
-    return URI->new( 'https://' . $self->host() . '/geoip/v2.0' );
+    return URI->new( 'https://' . $self->host() . '/geoip/v2.1' );
 }
 
 sub _build_ua {
@@ -311,7 +312,7 @@ sub _build_ua {
 
 1;
 
-# ABSTRACT: Perl API for the GeoIP2 web service end points
+# ABSTRACT: Perl API for the GeoIP2 Precision web services
 
 __END__
 
@@ -319,11 +320,11 @@ __END__
 
 =head1 NAME
 
-GeoIP2::WebService::Client - Perl API for the GeoIP2 web service end points
+GeoIP2::WebService::Client - Perl API for the GeoIP2 Precision web services
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -339,19 +340,19 @@ version 0.040003
       license_key => 'abcdef123456',
   );
 
-  # Replace "omni" with the method corresponding to the web service
+  # Replace "insights" with the method corresponding to the web service
   # that you are using, e.g., "country", "city_isp_org", "city".
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $country = $omni->country();
+  my $country = $insights->country();
   say $country->iso_code();
 
 =head1 DESCRIPTION
 
-This class provides a client API for all the GeoIP2 web service's end
-points. The end points are Country, City, City/ISP/Org, and Omni. Each end
-point returns a different set of data about an IP address, with Country
-returning the least data and Omni the most.
+This class provides a client API for all the GeoIP2 Precision web service end
+points. The end points are Country, City, and Insights. Each end point returns
+a different set of data about an IP address, with Country returning the least
+data and Insights the most.
 
 Each web service end point is represented by a different model class, and
 these model classes in turn contain multiple Record classes. The record
@@ -485,23 +486,18 @@ system's actual IP address.
 
 =head2 $client->country()
 
-This method calls the GeoIP2 Country end point. It returns a
+This method calls the GeoIP2 Precision: Country end point. It returns a
 L<GeoIP2::Model::Country> object.
 
 =head2 $client->city()
 
-This method calls the GeoIP2 Precision City end point. It returns a
+This method calls the GeoIP2 Precision: City end point. It returns a
 L<GeoIP2::Model::City> object.
 
-=head2 $client->city_isp_org()
+=head2 $client->insights()
 
-This method calls the GeoIP2 Precision City/ISP/Org end point. It returns a
-L<GeoIP2::Model::CityISPOrg> object.
-
-=head2 $client->omni()
-
-This method calls the GeoIP2 Precision Omni end point. It returns a
-L<GeoIP2::Model::Omni> object.
+This method calls the GeoIP2 Precision: Insights end point. It returns a
+L<GeoIP2::Model::Insights> object.
 
 =head1 User-Agent HEADER
 
@@ -572,10 +568,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 

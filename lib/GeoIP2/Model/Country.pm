@@ -1,5 +1,5 @@
 package GeoIP2::Model::Country;
-$GeoIP2::Model::Country::VERSION = '0.040003';
+$GeoIP2::Model::Country::VERSION = '0.040004';
 use strict;
 use warnings;
 
@@ -8,14 +8,14 @@ use Sub::Quote qw( quote_sub );
 
 use Moo;
 
-with 'GeoIP2::Role::Model';
+with 'GeoIP2::Role::Model::Location';
 
 __PACKAGE__->_define_attributes_for_keys(
     qw( continent country maxmind registered_country traits ));
 
 1;
 
-# ABSTRACT: Model class for the GeoIP2 Country end point
+# ABSTRACT: Model class for the GeoIP2 Precision: Country and GeoIP2 Country
 
 __END__
 
@@ -23,11 +23,11 @@ __END__
 
 =head1 NAME
 
-GeoIP2::Model::Country - Model class for the GeoIP2 Country end point
+GeoIP2::Model::Country - Model class for the GeoIP2 Precision: Country and GeoIP2 Country
 
 =head1 VERSION
 
-version 0.040003
+version 0.040004
 
 =head1 SYNOPSIS
 
@@ -47,8 +47,8 @@ version 0.040003
 
 =head1 DESCRIPTION
 
-This class provides a model for the data returned by the GeoIP2 Country end
-point.
+This class provides a model for the data returned by the GeoIP2 Precision:
+Country web service and the GeoIP2 Country database.
 
 =head1 METHODS
 
@@ -82,7 +82,7 @@ user's country.
 
 Returns a L<GeoIP2::Record::RepresentedCountry> object for the country
 represented by the requested IP address. The represented country may differ
-from the C<country> for things like military bases or embassies.
+from the C<country> for things like military bases.
 
 =head2 $country->traits()
 
@@ -106,10 +106,6 @@ Greg Oschwald <goschwald@maxmind.com>
 Olaf Alders <oalders@maxmind.com>
 
 =back
-
-=head1 CONTRIBUTOR
-
-Graham Knop <haarg@haarg.org>
 
 =head1 COPYRIGHT AND LICENSE
 
