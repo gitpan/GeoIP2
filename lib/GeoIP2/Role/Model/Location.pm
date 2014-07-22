@@ -1,5 +1,5 @@
 package GeoIP2::Role::Model::Location;
-$GeoIP2::Role::Model::Location::VERSION = '0.040004';
+$GeoIP2::Role::Model::Location::VERSION = '0.040005';
 use strict;
 use warnings;
 

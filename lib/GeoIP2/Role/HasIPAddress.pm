@@ -1,5 +1,5 @@
 package GeoIP2::Role::HasIPAddress;
-$GeoIP2::Role::HasIPAddress::VERSION = '0.040004';
+$GeoIP2::Role::HasIPAddress::VERSION = '0.040005';
 use strict;
 use warnings;
 

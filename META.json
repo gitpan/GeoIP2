@@ -81,7 +81,7 @@
          "web" : "https://github.com/maxmind/GeoIP2-perl"
       }
    },
-   "version" : "0.040004",
+   "version" : "0.040005",
    "x_authority" : "cpan:TJMATHER",
    "x_contributors" : [
       "Graham Knop <haarg@haarg.org>"
