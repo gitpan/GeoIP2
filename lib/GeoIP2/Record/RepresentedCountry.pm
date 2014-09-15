@@ -1,5 +1,5 @@
 package GeoIP2::Record::RepresentedCountry;
-$GeoIP2::Record::RepresentedCountry::VERSION = '0.040005';
+$GeoIP2::Record::RepresentedCountry::VERSION = '0.050000';
 use strict;
 use warnings;
 
@@ -29,7 +29,7 @@ GeoIP2::Record::RepresentedCountry - Contains data for the represented country r
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -42,9 +42,9 @@ version 0.040005
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $country_rec = $omni->reprented_country();
+  my $country_rec = $insights->reprented_country();
   say $country_rec->name();
   say $country_rec->type();
 

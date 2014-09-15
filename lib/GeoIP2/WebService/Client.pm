@@ -1,5 +1,5 @@
 package GeoIP2::WebService::Client;
-$GeoIP2::WebService::Client::VERSION = '0.040005';
+$GeoIP2::WebService::Client::VERSION = '0.050000';
 use 5.008;
 
 use strict;
@@ -106,12 +106,6 @@ sub city {
     );
 }
 
-sub city_isp_org {
-    my $self = shift;
-
-    return $self->city(@_);
-}
-
 sub insights {
     my $self = shift;
 
@@ -122,12 +116,6 @@ sub insights {
     );
 }
 
-sub omni {
-    my $self = shift;
-
-    return $self->insights(@_);
-}
-
 my %spec = (
     ip => {
         callbacks => {
@@ -136,7 +124,7 @@ my %spec = (
                     && ( $_[0] eq 'me'
                     || is_public_ipv4( $_[0] )
                     || is_public_ipv6( $_[0] ) );
-                }
+            }
         },
     },
 );
@@ -324,7 +312,7 @@ GeoIP2::WebService::Client - Perl API for the GeoIP2 Precision web services
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -341,7 +329,7 @@ version 0.040005
   );
 
   # Replace "insights" with the method corresponding to the web service
-  # that you are using, e.g., "country", "city_isp_org", "city".
+  # that you are using, e.g., "country", "city".
   my $insights = $client->insights( ip => '24.24.24.24' );
 
   my $country = $insights->country();

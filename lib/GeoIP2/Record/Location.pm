@@ -1,5 +1,5 @@
 package GeoIP2::Record::Location;
-$GeoIP2::Record::Location::VERSION = '0.040005';
+$GeoIP2::Record::Location::VERSION = '0.050000';
 use strict;
 use warnings;
 
@@ -51,7 +51,7 @@ GeoIP2::Record::Location - Contains data for the location record associated with
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -64,9 +64,9 @@ version 0.040005
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $location_rec = $omni->location();
+  my $location_rec = $insights->location();
   say $location_rec->name();
 
 =head1 DESCRIPTION

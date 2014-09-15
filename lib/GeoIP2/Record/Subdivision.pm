@@ -1,5 +1,5 @@
 package GeoIP2::Record::Subdivision;
-$GeoIP2::Record::Subdivision::VERSION = '0.040005';
+$GeoIP2::Record::Subdivision::VERSION = '0.050000';
 use strict;
 use warnings;
 
@@ -41,7 +41,7 @@ GeoIP2::Record::Subdivision - Contains data for the subdivision record associate
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -54,9 +54,9 @@ version 0.040005
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $subdivision_rec = $omni->subdivision();
+  my $subdivision_rec = $insights->subdivision();
   say $subdivision_rec->name();
 
 =head1 DESCRIPTION

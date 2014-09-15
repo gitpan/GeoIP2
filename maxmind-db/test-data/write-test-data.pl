@@ -302,7 +302,7 @@ sub write_test_db {
 }
 
 sub write_geoip2_dbs {
-    for my $type ( 'City', 'Connection-Type', 'Domain', 'ISP', ) {
+    for my $type ( 'City', 'Connection-Type', 'Country', 'Domain', 'ISP', ) {
         _write_geoip2_db( $type, 'Test' );
     }
 }
@@ -359,15 +359,15 @@ sub write_broken_geoip2_city_db {
             ip_version    => 6,
             record_size   => 28,
             ip_version    => 6,
-            database_type => "GeoIP2 $type",
+            database_type => "GeoIP2-$type",
             languages     => [ 'en', $type eq 'City' ? ('zh') : () ],
             description   => {
                 en =>
                     "GeoIP2 $type $description Database (a small sample of real GeoIP2 data)",
                 $type eq 'City' ? ( zh => '小型数据库' ) : (),
             },
-            alias_ipv6_to_ipv4    => 1,
-            map_key_type_callback => $type_cb,
+            alias_ipv6_to_ipv4      => 1,
+            map_key_type_callback   => $type_cb,
         );
 
         my $nodes = decode_json(

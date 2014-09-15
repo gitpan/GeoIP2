@@ -1,5 +1,5 @@
 package GeoIP2::Record::MaxMind;
-$GeoIP2::Record::MaxMind::VERSION = '0.040005';
+$GeoIP2::Record::MaxMind::VERSION = '0.050000';
 use strict;
 use warnings;
 
@@ -26,7 +26,7 @@ GeoIP2::Record::MaxMind - Contains data for the maxmind record returned from a w
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -39,9 +39,9 @@ version 0.040005
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $maxmind_rec = $omni->maxmind();
+  my $maxmind_rec = $insights->maxmind();
   say $maxmind_rec->queries_remaining();
 
 =head1 DESCRIPTION

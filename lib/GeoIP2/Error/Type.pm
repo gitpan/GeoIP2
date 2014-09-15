@@ -1,5 +1,5 @@
 package GeoIP2::Error::Type;
-$GeoIP2::Error::Type::VERSION = '0.040005';
+$GeoIP2::Error::Type::VERSION = '0.050000';
 use strict;
 use warnings;
 
@@ -33,7 +33,7 @@ GeoIP2::Error::Type - A type validation error.
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -49,7 +49,7 @@ version 0.040005
   );
 
   try {
-      $client->omni( ip => '24.24.24.24' );
+      $client->insights( ip => '24.24.24.24' );
   }
   catch {
       die $_ unless blessed $_;

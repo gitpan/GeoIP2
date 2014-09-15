@@ -1,5 +1,5 @@
 package GeoIP2::Record::City;
-$GeoIP2::Record::City::VERSION = '0.040005';
+$GeoIP2::Record::City::VERSION = '0.050000';
 use strict;
 use warnings;
 
@@ -35,7 +35,7 @@ GeoIP2::Record::City - Contains data for the city record associated with an IP a
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -48,9 +48,9 @@ version 0.040005
       license_key => 'abcdef123456',
   );
 
-  my $omni = $client->omni( ip => '24.24.24.24' );
+  my $insights = $client->insights( ip => '24.24.24.24' );
 
-  my $city_rec = $omni->city();
+  my $city_rec = $insights->city();
   say $city_rec->name();
 
 =head1 DESCRIPTION

@@ -1,5 +1,5 @@
 package GeoIP2::Model::Insights;
-$GeoIP2::Model::Insights::VERSION = '0.040005';
+$GeoIP2::Model::Insights::VERSION = '0.050000';
 use strict;
 use warnings;
 
@@ -26,7 +26,7 @@ GeoIP2::Model::Insights - Model class for GeoIP2 Precision: Insights
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 

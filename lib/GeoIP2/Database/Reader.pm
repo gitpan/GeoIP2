@@ -1,9 +1,10 @@
 package GeoIP2::Database::Reader;
-$GeoIP2::Database::Reader::VERSION = '0.040005';
+$GeoIP2::Database::Reader::VERSION = '0.050000';
 use strict;
 use warnings;
 
-use Carp qw( croak );
+use Data::Validate::IP 0.16
+    qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
 use GeoIP2::Model::City;
@@ -13,7 +14,7 @@ use GeoIP2::Model::Domain;
 use GeoIP2::Model::Insights;
 use GeoIP2::Model::ISP;
 use GeoIP2::Types qw( Str );
-use MaxMind::DB::Reader;
+use MaxMind::DB::Reader 0.060001;
 
 use Moo;
 
@@ -31,6 +32,7 @@ has _reader => (
     does    => 'MaxMind::DB::Reader::Role::Reader',
     lazy    => 1,
     builder => '_build_reader',
+    handles => ['metadata'],
 );
 
 sub _build_reader {
@@ -51,10 +53,27 @@ sub _model_for_address {
                 . __PACKAGE__ );
     }
 
+    unless ( $self->metadata->database_type =~ $args{type_check} ) {
+        my ($method) = ( caller(1) )[3];
+        GeoIP2::Error::Generic->throw( message => "The $method() on "
+                . __PACKAGE__
+                . ' cannot be used with the '
+                . $self->metadata->database_type
+                . ' database' );
+    }
+
     if ( $ip eq 'me' ) {
         my ($method) = ( caller(1) )[3];
         GeoIP2::Error::Generic->throw(
                   message => "me is not a valid IP when calling $method on "
+                . __PACKAGE__ );
+    }
+
+    if ( is_private_ipv4($ip) || is_private_ipv6($ip) ) {
+        my ($method) = ( caller(1) )[3];
+        GeoIP2::Error::Generic->throw(
+                  message => "The IP address you provided ($ip) is not a "
+                . "public IP address when calling $method on "
                 . __PACKAGE__ );
     }
 
@@ -81,42 +100,50 @@ sub _model_for_address {
 
 sub city {
     my $self = shift;
-    return $self->_model_for_address( 'City', @_ );
-}
-
-sub city_isp_org {
-    my $self = shift;
-    return $self->city(@_);
+    return $self->_model_for_address(
+        'City',
+        type_check => qr/^(?:GeoLite2|GeoIP2)-City/,
+        @_
+    );
 }
 
 sub country {
     my $self = shift;
-    return $self->_model_for_address( 'Country', @_ );
-}
-
-sub insights {
-    my $self = shift;
-    return $self->_model_for_address( 'Insights', @_ );
-}
-
-sub omni {
-    my $self = shift;
-    return $self->insights(@_);
+    return $self->_model_for_address(
+        'Country',
+        type_check => qr/^(?:GeoLite2|GeoIP2)-Country$/,
+        @_
+    );
 }
 
 sub connection_type {
     my $self = shift;
-    return $self->_model_for_address( 'ConnectionType', is_flat => 1, @_ );
+    return $self->_model_for_address(
+        'ConnectionType',
+        type_check => qr/^GeoIP2-Connection-Type$/,
+        is_flat    => 1,
+        @_
+    );
 }
 
 sub domain {
     my $self = shift;
-    return $self->_model_for_address( 'Domain', is_flat => 1, @_ );
+    return $self->_model_for_address(
+        'Domain',
+        type_check => qr/^GeoIP2-Domain$/,
+        is_flat    => 1,
+        @_
+    );
 }
 
 sub isp {
     my $self = shift;
-    return $self->_model_for_address( 'ISP', is_flat => 1, @_ );
+    return $self->_model_for_address(
+        'ISP',
+        type_check => qr/^GeoIP2-ISP$/,
+        is_flat    => 1,
+        @_
+    );
 }
 
 1;
@@ -133,7 +160,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 0.040005
+version 0.050000
 
 =head1 SYNOPSIS
 
@@ -146,8 +173,8 @@ version 0.040005
       locales => [ 'en', 'de', ]
   );
 
-  my $omni = $reader->omni( ip => '24.24.24.24' );
-  my $country = $omni->country();
+  my $insights = $reader->insights( ip => '24.24.24.24' );
+  my $country = $insights->country();
   say $country->is_code();
 
 =head1 DESCRIPTION
@@ -261,18 +288,16 @@ This method returns a L<GeoIP2::Model::City> object.
 
 This method returns a L<GeoIP2::Model::Domain> object.
 
-=head2 $reader->insights()
-
-This method returns a L<GeoIP2::Model::Insights> object.
-
-Note that the data which makes the Insights web service different from
-City is not available in any downloadable database. This means that
-calling the C<< $reader->insights() >> always returns the same data as as C<<
-$reader->city() >>.
-
 =head2 $reader->isp()
 
 This method returns a L<GeoIP2::Model::ISP> object.
+
+=head1 OTHER METHODS
+
+=head2 $reader->metadata()
+
+This method returns a L<MaxMind::DB:Metadata> object containing information
+about the database.
 
 =head1 EXCEPTIONS
 

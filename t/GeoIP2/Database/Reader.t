@@ -10,15 +10,17 @@ use Path::Class qw( file );
 my $locales = [ 'en', 'de', ];
 
 {
-    my $reader = GeoIP2::Database::Reader->new(
-        file =>
-            file(qw( maxmind-db test-data GeoIP2-City-Test.mmdb))->stringify,
-        locales => $locales
-    );
+    for my $type ( 'Country', 'City', ) {
 
-    ok( $reader, 'got reader for test database' );
+        my $reader = GeoIP2::Database::Reader->new(
+            file =>
+                file( 'maxmind-db', 'test-data', "GeoIP2-$type-Test.mmdb" )
+                ->stringify,
+            locales => $locales
+        );
 
-    for my $model ( 'country', 'city', 'city_isp_org', 'insights', 'omni', ) {
+        my $model = lc $type;
+
         like(
             exception { $reader->$model() },
             qr/Required param/,
@@ -29,6 +31,12 @@ my $locales = [ 'en', 'de', ];
             exception { $reader->$model( ip => 'me' ) },
             qr/me is not a valid IP/,
             qq{dies on "me" - $model method}
+        );
+
+        like(
+            exception { $reader->$model( ip => '10.0.0.0' ) },
+            qr/not a public IP/,
+            qq{dies on private IP - $model method}
         );
 
         like(
