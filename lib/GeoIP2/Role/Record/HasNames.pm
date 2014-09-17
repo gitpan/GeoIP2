@@ -1,5 +1,5 @@
 package GeoIP2::Role::Record::HasNames;
-$GeoIP2::Role::Record::HasNames::VERSION = '0.050000';
+$GeoIP2::Role::Record::HasNames::VERSION = '0.050001';
 use strict;
 use warnings;
 

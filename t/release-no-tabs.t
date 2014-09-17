@@ -1,15 +1,15 @@
 
 BEGIN {
-  unless ($ENV{AUTHOR_TESTING}) {
+  unless ($ENV{RELEASE_TESTING}) {
     require Test::More;
-    Test::More::plan(skip_all => 'these tests are for testing by the author');
+    Test::More::plan(skip_all => 'these tests are for release candidate testing');
   }
 }
 
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::Test::NoTabs 0.09
+# this test was generated with Dist::Zilla::Plugin::Test::NoTabs 0.05
 
 use Test::More 0.88;
 use Test::NoTabs;
@@ -48,23 +48,7 @@ my @files = (
     'lib/GeoIP2/Role/Record/Country.pm',
     'lib/GeoIP2/Role/Record/HasNames.pm',
     'lib/GeoIP2/Types.pm',
-    'lib/GeoIP2/WebService/Client.pm',
-    't/GeoIP2/Database/Reader.t',
-    't/GeoIP2/Error/Type.t',
-    't/GeoIP2/Model/City.t',
-    't/GeoIP2/Model/Country.t',
-    't/GeoIP2/Model/Insights.t',
-    't/GeoIP2/Model/names.t',
-    't/GeoIP2/Types.t',
-    't/GeoIP2/WebService/Client.t',
-    't/author-no-tabs.t',
-    't/lib/Test/GeoIP2.pm',
-    't/release-cpan-changes.t',
-    't/release-eol.t',
-    't/release-pod-coverage.t',
-    't/release-pod-spell.t',
-    't/release-pod-syntax.t',
-    't/release-synopsis.t'
+    'lib/GeoIP2/WebService/Client.pm'
 );
 
 notabs_ok($_) foreach @files;

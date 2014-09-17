@@ -1,5 +1,5 @@
 package GeoIP2::Role::HasLocales;
-$GeoIP2::Role::HasLocales::VERSION = '0.050000';
+$GeoIP2::Role::HasLocales::VERSION = '0.050001';
 use strict;
 use warnings;
 

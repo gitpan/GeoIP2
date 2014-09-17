@@ -8,6 +8,9 @@ BEGIN {
 }
 
 
-use Test::Synopsis;
+use Test::More;
 
-all_synopsis_ok();
+eval "use Test::Synopsis";
+plan skip_all => "Test::Synopsis required for testing synopses"
+  if $@;
+all_synopsis_ok('lib');

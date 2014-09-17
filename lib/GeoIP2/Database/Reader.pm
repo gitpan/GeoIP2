@@ -1,5 +1,5 @@
 package GeoIP2::Database::Reader;
-$GeoIP2::Database::Reader::VERSION = '0.050000';
+$GeoIP2::Database::Reader::VERSION = '0.050001';
 use strict;
 use warnings;
 
@@ -102,7 +102,7 @@ sub city {
     my $self = shift;
     return $self->_model_for_address(
         'City',
-        type_check => qr/^(?:GeoLite2|GeoIP2)-City/,
+        type_check => qr/City/,
         @_
     );
 }
@@ -160,7 +160,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 0.050000
+version 0.050001
 
 =head1 SYNOPSIS
 

@@ -8,6 +8,10 @@ META.yml
 Makefile.PL
 README
 bin/web-service-request
+cover_db/cover.13
+cover_db/cover.css
+cover_db/coverage.html
+cover_db/digests
 dist.ini
 lib/GeoIP2.pm
 lib/GeoIP2/Database/Reader.pm
@@ -74,6 +78,8 @@ maxmind-db/test-data/MaxMind-DB-test-nested.mmdb
 maxmind-db/test-data/README.md
 maxmind-db/test-data/maps-with-pointers.raw
 maxmind-db/test-data/write-test-data.pl
+perltidy.LOG
+pod2htmd.tmp
 t/GeoIP2/Database/Reader.t
 t/GeoIP2/Error/Type.t
 t/GeoIP2/Model/City.t
@@ -82,10 +88,10 @@ t/GeoIP2/Model/Insights.t
 t/GeoIP2/Model/names.t
 t/GeoIP2/Types.t
 t/GeoIP2/WebService/Client.t
-t/author-no-tabs.t
 t/lib/Test/GeoIP2.pm
 t/release-cpan-changes.t
 t/release-eol.t
+t/release-no-tabs.t
 t/release-pod-coverage.t
 t/release-pod-spell.t
 t/release-pod-syntax.t
