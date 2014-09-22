@@ -1,5 +1,5 @@
 package GeoIP2;
-$GeoIP2::VERSION = '2.000000';
+$GeoIP2::VERSION = '2.000001';
 use 5.008;
 
 1;
@@ -16,7 +16,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 DESCRIPTION
 
@@ -28,14 +28,6 @@ L<GeoLite2 databases|http://dev.maxmind.com/geoip/geoip2/geolite2/>.
 
 See L<GeoIP2::WebService::Client> for details on the web service client API
 and L<GeoIP2::Database::Reader> for the database API.
-
-=head1 BETA NOTE
-
-This is a beta release. The API may change before the first production
-release, which will be numbered 2.0000.
-
-You may find information on the GeoIP2 beta release process on
-L<our website|http://www.maxmind.com/en/geoip2_beta>.
 
 =head1 SPEEDING UP DATABASE READING
 

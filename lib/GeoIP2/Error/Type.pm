@@ -1,5 +1,5 @@
 package GeoIP2::Error::Type;
-$GeoIP2::Error::Type::VERSION = '2.000000';
+$GeoIP2::Error::Type::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -33,7 +33,7 @@ GeoIP2::Error::Type - A type validation error.
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 

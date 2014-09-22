@@ -1,5 +1,5 @@
 package GeoIP2::Database::Reader;
-$GeoIP2::Database::Reader::VERSION = '2.000000';
+$GeoIP2::Database::Reader::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -160,7 +160,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 

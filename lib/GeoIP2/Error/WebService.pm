@@ -1,5 +1,5 @@
 package GeoIP2::Error::WebService;
-$GeoIP2::Error::WebService::VERSION = '2.000000';
+$GeoIP2::Error::WebService::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -31,7 +31,7 @@ GeoIP2::Error::WebService - An explicit error from the GeoIP2 web service
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 

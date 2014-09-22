@@ -1,5 +1,5 @@
 package GeoIP2::Error::HTTP;
-$GeoIP2::Error::HTTP::VERSION = '2.000000';
+$GeoIP2::Error::HTTP::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -23,7 +23,7 @@ GeoIP2::Error::HTTP - An HTTP transport error
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 

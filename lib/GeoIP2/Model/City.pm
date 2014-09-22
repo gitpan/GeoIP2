@@ -1,5 +1,5 @@
 package GeoIP2::Model::City;
-$GeoIP2::Model::City::VERSION = '2.000000';
+$GeoIP2::Model::City::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -26,7 +26,7 @@ GeoIP2::Model::City - Model class for GeoIP2 Precision: City and GeoIP2 City
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 

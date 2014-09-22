@@ -1,5 +1,5 @@
 package GeoIP2::Record::Subdivision;
-$GeoIP2::Record::Subdivision::VERSION = '2.000000';
+$GeoIP2::Record::Subdivision::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -41,7 +41,7 @@ GeoIP2::Record::Subdivision - Contains data for the subdivision record associate
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 

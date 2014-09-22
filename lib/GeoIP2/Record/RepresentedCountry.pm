@@ -1,5 +1,5 @@
 package GeoIP2::Record::RepresentedCountry;
-$GeoIP2::Record::RepresentedCountry::VERSION = '2.000000';
+$GeoIP2::Record::RepresentedCountry::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -29,7 +29,7 @@ GeoIP2::Record::RepresentedCountry - Contains data for the represented country r
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 

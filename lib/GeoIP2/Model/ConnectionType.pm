@@ -1,5 +1,5 @@
 package GeoIP2::Model::ConnectionType;
-$GeoIP2::Model::ConnectionType::VERSION = '2.000000';
+$GeoIP2::Model::ConnectionType::VERSION = '2.000001';
 use strict;
 use warnings;
 
@@ -29,7 +29,7 @@ GeoIP2::Model::ConnectionType - Model class for the GeoIP2 Connection Type datab
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 
