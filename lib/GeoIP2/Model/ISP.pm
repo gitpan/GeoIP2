@@ -1,5 +1,5 @@
 package GeoIP2::Model::ISP;
-$GeoIP2::Model::ISP::VERSION = '0.050001';
+$GeoIP2::Model::ISP::VERSION = '2.000000';
 use strict;
 use warnings;
 
@@ -47,7 +47,7 @@ GeoIP2::Model::ISP - Model class for the GeoIP2 ISP database
 
 =head1 VERSION
 
-version 0.050001
+version 2.000000
 
 =head1 SYNOPSIS
 

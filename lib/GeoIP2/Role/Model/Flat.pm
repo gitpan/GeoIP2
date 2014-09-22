@@ -1,5 +1,5 @@
 package GeoIP2::Role::Model::Flat;
-$GeoIP2::Role::Model::Flat::VERSION = '0.050001';
+$GeoIP2::Role::Model::Flat::VERSION = '2.000000';
 use strict;
 use warnings;
 

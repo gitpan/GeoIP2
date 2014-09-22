@@ -1,5 +1,5 @@
 package GeoIP2::Record::City;
-$GeoIP2::Record::City::VERSION = '0.050001';
+$GeoIP2::Record::City::VERSION = '2.000000';
 use strict;
 use warnings;
 
@@ -35,7 +35,7 @@ GeoIP2::Record::City - Contains data for the city record associated with an IP a
 
 =head1 VERSION
 
-version 0.050001
+version 2.000000
 
 =head1 SYNOPSIS
 

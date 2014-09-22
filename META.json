@@ -33,7 +33,7 @@
          "requires" : {
             "B" : "0",
             "Data::Dumper" : "0",
-            "Data::Validate::IP" : "0.19",
+            "Data::Validate::IP" : "0.24",
             "Exporter" : "0",
             "Getopt::Long" : "0",
             "JSON" : "0",
@@ -42,7 +42,7 @@
             "List::MoreUtils" : "0",
             "List::Util" : "0",
             "MIME::Base64" : "0",
-            "MaxMind::DB::Reader" : "0.060001",
+            "MaxMind::DB::Reader" : "1.000000",
             "Moo" : "0",
             "Moo::Role" : "0",
             "Params::Validate" : "0",
@@ -80,7 +80,7 @@
          "web" : "https://github.com/maxmind/GeoIP2-perl"
       }
    },
-   "version" : "0.050001",
+   "version" : "2.000000",
    "x_authority" : "cpan:MAXMIND",
    "x_contributors" : [
       "Graham Knop <haarg@haarg.org>"

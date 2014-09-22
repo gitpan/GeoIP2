@@ -1,9 +1,9 @@
 package GeoIP2::Database::Reader;
-$GeoIP2::Database::Reader::VERSION = '0.050001';
+$GeoIP2::Database::Reader::VERSION = '2.000000';
 use strict;
 use warnings;
 
-use Data::Validate::IP 0.16
+use Data::Validate::IP 0.24
     qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
@@ -14,7 +14,7 @@ use GeoIP2::Model::Domain;
 use GeoIP2::Model::Insights;
 use GeoIP2::Model::ISP;
 use GeoIP2::Types qw( Str );
-use MaxMind::DB::Reader 0.060001;
+use MaxMind::DB::Reader 1.000000;
 
 use Moo;
 
@@ -160,7 +160,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 0.050001
+version 2.000000
 
 =head1 SYNOPSIS
 

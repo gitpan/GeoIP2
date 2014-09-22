@@ -1,5 +1,5 @@
 package GeoIP2::Record::Postal;
-$GeoIP2::Record::Postal::VERSION = '0.050001';
+$GeoIP2::Record::Postal::VERSION = '2.000000';
 use strict;
 use warnings;
 
@@ -33,7 +33,7 @@ GeoIP2::Record::Postal - Contains data for the postal code record associated wit
 
 =head1 VERSION
 
-version 0.050001
+version 2.000000
 
 =head1 SYNOPSIS
 

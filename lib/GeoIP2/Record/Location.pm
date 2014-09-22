@@ -1,5 +1,5 @@
 package GeoIP2::Record::Location;
-$GeoIP2::Record::Location::VERSION = '0.050001';
+$GeoIP2::Record::Location::VERSION = '2.000000';
 use strict;
 use warnings;
 
@@ -51,7 +51,7 @@ GeoIP2::Record::Location - Contains data for the location record associated with
 
 =head1 VERSION
 
-version 0.050001
+version 2.000000
 
 =head1 SYNOPSIS
 

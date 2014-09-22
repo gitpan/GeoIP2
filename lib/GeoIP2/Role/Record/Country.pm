@@ -1,5 +1,5 @@
 package GeoIP2::Role::Record::Country;
-$GeoIP2::Role::Record::Country::VERSION = '0.050001';
+$GeoIP2::Role::Record::Country::VERSION = '2.000000';
 use strict;
 use warnings;
 
