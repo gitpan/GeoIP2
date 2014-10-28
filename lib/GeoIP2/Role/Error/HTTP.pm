@@ -1,5 +1,5 @@
 package GeoIP2::Role::Error::HTTP;
-$GeoIP2::Role::Error::HTTP::VERSION = '2.000001';
+$GeoIP2::Role::Error::HTTP::VERSION = '2.001000';
 use strict;
 use warnings;
 

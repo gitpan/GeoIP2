@@ -1,5 +1,5 @@
 package GeoIP2::Model::Domain;
-$GeoIP2::Model::Domain::VERSION = '2.000001';
+$GeoIP2::Model::Domain::VERSION = '2.001000';
 use strict;
 use warnings;
 
@@ -29,7 +29,7 @@ GeoIP2::Model::Domain - Model class for the GeoIP2 Domain database
 
 =head1 VERSION
 
-version 2.000001
+version 2.001000
 
 =head1 SYNOPSIS
 
@@ -37,25 +37,26 @@ version 2.000001
 
   use GeoIP2::Model::Domain;
 
-  my $record = GeoIP2::Model::Domain->new(
+  my $domain = GeoIP2::Model::Domain->new(
       raw  => { domain => 'maxmind.com', ip_address => '24.24.24.24'}
   );
 
-  say $record->domain();
+  say $domain->domain();
 
 =head1 DESCRIPTION
 
-This class provides a model for GeoIP2 Domain.
+This class provides a model for the data returned by the GeoIP2 Domain
+database.
 
 =head1 METHODS
 
 This class provides the following methods:
 
-=head2 $record->domain()
+=head2 $domain->domain()
 
 Returns the domain as a string.
 
-=head2 $record->ip_address()
+=head2 $domain->ip_address()
 
 Returns the IP address used in the lookup.
 
@@ -79,7 +80,7 @@ Olaf Alders <oalders@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by MaxMind, Inc..
+This software is copyright (c) 2013 - 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

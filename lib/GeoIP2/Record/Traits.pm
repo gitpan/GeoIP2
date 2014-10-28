@@ -1,5 +1,5 @@
 package GeoIP2::Record::Traits;
-$GeoIP2::Record::Traits::VERSION = '2.000001';
+$GeoIP2::Record::Traits::VERSION = '2.001000';
 use strict;
 use warnings;
 
@@ -74,7 +74,7 @@ GeoIP2::Record::Traits - Contains data for the traits record associated with an 
 
 =head1 VERSION
 
-version 2.000001
+version 2.001000
 
 =head1 SYNOPSIS
 
@@ -226,7 +226,7 @@ Olaf Alders <oalders@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by MaxMind, Inc..
+This software is copyright (c) 2013 - 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

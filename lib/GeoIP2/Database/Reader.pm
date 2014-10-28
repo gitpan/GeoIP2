@@ -1,5 +1,5 @@
 package GeoIP2::Database::Reader;
-$GeoIP2::Database::Reader::VERSION = '2.000001';
+$GeoIP2::Database::Reader::VERSION = '2.001000';
 use strict;
 use warnings;
 
@@ -7,6 +7,7 @@ use Data::Validate::IP 0.24
     qw( is_ipv4 is_ipv6 is_private_ipv4 is_private_ipv6 );
 use GeoIP2::Error::Generic;
 use GeoIP2::Error::IPAddressNotFound;
+use GeoIP2::Model::AnonymousIP;
 use GeoIP2::Model::City;
 use GeoIP2::Model::ConnectionType;
 use GeoIP2::Model::Country;
@@ -146,6 +147,16 @@ sub isp {
     );
 }
 
+sub anonymous_ip {
+    my $self = shift;
+    return $self->_model_for_address(
+        'AnonymousIP',
+        type_check => qr/^GeoIP2-Anonymous-IP$/,
+        is_flat    => 1,
+        @_,
+    );
+}
+
 1;
 
 # ABSTRACT: Perl API for GeoIP2 databases
@@ -160,7 +171,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 2.000001
+version 2.001000
 
 =head1 SYNOPSIS
 
@@ -292,6 +303,10 @@ This method returns a L<GeoIP2::Model::Domain> object.
 
 This method returns a L<GeoIP2::Model::ISP> object.
 
+=head2 $reader->anonymous_ip()
+
+This method returns a L<GeoIP2::Model::AnonymousIP> object.
+
 =head1 OTHER METHODS
 
 =head2 $reader->metadata()
@@ -345,7 +360,7 @@ Olaf Alders <oalders@maxmind.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by MaxMind, Inc..
+This software is copyright (c) 2013 - 2014 by MaxMind, Inc..
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
