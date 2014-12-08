@@ -1,5 +1,5 @@
 package GeoIP2::Error::Generic;
-$GeoIP2::Error::Generic::VERSION = '2.001001';
+$GeoIP2::Error::Generic::VERSION = '2.001002';
 use strict;
 use warnings;
 
@@ -21,7 +21,7 @@ GeoIP2::Error::Generic - A generic exception
 
 =head1 VERSION
 
-version 2.001001
+version 2.001002
 
 =head1 SYNOPSIS
 

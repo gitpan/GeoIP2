@@ -1,5 +1,5 @@
 package GeoIP2::WebService::Client;
-$GeoIP2::WebService::Client::VERSION = '2.001001';
+$GeoIP2::WebService::Client::VERSION = '2.001002';
 use 5.008;
 
 use strict;
@@ -312,7 +312,7 @@ GeoIP2::WebService::Client - Perl API for the GeoIP2 Precision web services
 
 =head1 VERSION
 
-version 2.001001
+version 2.001002
 
 =head1 SYNOPSIS
 

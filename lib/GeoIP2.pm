@@ -1,6 +1,6 @@
 package GeoIP2;
-# git description: v2.001000-3-g2833403
-$GeoIP2::VERSION = '2.001001';
+# git description: v2.001001-3-g281552f
+$GeoIP2::VERSION = '2.001002';
 
 use 5.008;
 
@@ -18,7 +18,7 @@ GeoIP2 - Perl API for MaxMind's GeoIP2 web services and databases
 
 =head1 VERSION
 
-version 2.001001
+version 2.001002
 
 =head1 DESCRIPTION
 

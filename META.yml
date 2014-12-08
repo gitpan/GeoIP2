@@ -30,106 +30,106 @@ name: GeoIP2
 provides:
   GeoIP2:
     file: lib/GeoIP2.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Database::Reader:
     file: lib/GeoIP2/Database/Reader.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Error::Generic:
     file: lib/GeoIP2/Error/Generic.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Error::HTTP:
     file: lib/GeoIP2/Error/HTTP.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Error::IPAddressNotFound:
     file: lib/GeoIP2/Error/IPAddressNotFound.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Error::Type:
     file: lib/GeoIP2/Error/Type.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Error::WebService:
     file: lib/GeoIP2/Error/WebService.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Model::AnonymousIP:
     file: lib/GeoIP2/Model/AnonymousIP.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Model::City:
     file: lib/GeoIP2/Model/City.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Model::ConnectionType:
     file: lib/GeoIP2/Model/ConnectionType.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Model::Country:
     file: lib/GeoIP2/Model/Country.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Model::Domain:
     file: lib/GeoIP2/Model/Domain.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Model::ISP:
     file: lib/GeoIP2/Model/ISP.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Model::Insights:
     file: lib/GeoIP2/Model/Insights.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::City:
     file: lib/GeoIP2/Record/City.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::Continent:
     file: lib/GeoIP2/Record/Continent.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::Country:
     file: lib/GeoIP2/Record/Country.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::Location:
     file: lib/GeoIP2/Record/Location.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::MaxMind:
     file: lib/GeoIP2/Record/MaxMind.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::Postal:
     file: lib/GeoIP2/Record/Postal.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::RepresentedCountry:
     file: lib/GeoIP2/Record/RepresentedCountry.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::Subdivision:
     file: lib/GeoIP2/Record/Subdivision.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Record::Traits:
     file: lib/GeoIP2/Record/Traits.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::Error::HTTP:
     file: lib/GeoIP2/Role/Error/HTTP.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::HasIPAddress:
     file: lib/GeoIP2/Role/HasIPAddress.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::HasLocales:
     file: lib/GeoIP2/Role/HasLocales.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::Model:
     file: lib/GeoIP2/Role/Model.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::Model::Flat:
     file: lib/GeoIP2/Role/Model/Flat.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::Model::HasSubdivisions:
     file: lib/GeoIP2/Role/Model/HasSubdivisions.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::Model::Location:
     file: lib/GeoIP2/Role/Model/Location.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::Record::Country:
     file: lib/GeoIP2/Role/Record/Country.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Role::Record::HasNames:
     file: lib/GeoIP2/Role/Record/HasNames.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::Types:
     file: lib/GeoIP2/Types.pm
-    version: '2.001001'
+    version: '2.001002'
   GeoIP2::WebService::Client:
     file: lib/GeoIP2/WebService/Client.pm
-    version: '2.001001'
+    version: '2.001002'
 requires:
   B: '0'
   Data::Dumper: '0'
@@ -159,7 +159,7 @@ resources:
   bugtracker: https://github.com/maxmind/GeoIP2-perl/issues
   homepage: http://metacpan.org/release/GeoIP2/
   repository: git://github.com/maxmind/GeoIP2-perl.git
-version: '2.001001'
+version: '2.001002'
 x_Dist_Zilla:
   perl:
     version: '5.016003'
@@ -541,7 +541,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v2.001001
+          tag: v2.001002
           tag_format: v%v
           tag_message: v%v
           time_zone: local

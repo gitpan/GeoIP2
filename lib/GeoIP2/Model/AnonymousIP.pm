@@ -1,5 +1,5 @@
 package GeoIP2::Model::AnonymousIP;
-$GeoIP2::Model::AnonymousIP::VERSION = '2.001001';
+$GeoIP2::Model::AnonymousIP::VERSION = '2.001002';
 use strict;
 use warnings;
 
@@ -35,7 +35,7 @@ GeoIP2::Model::AnonymousIP - Model class for the GeoIP2 Anonymous IP database
 
 =head1 VERSION
 
-version 2.001001
+version 2.001002
 
 =head1 SYNOPSIS
 

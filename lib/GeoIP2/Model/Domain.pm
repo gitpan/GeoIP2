@@ -1,5 +1,5 @@
 package GeoIP2::Model::Domain;
-$GeoIP2::Model::Domain::VERSION = '2.001001';
+$GeoIP2::Model::Domain::VERSION = '2.001002';
 use strict;
 use warnings;
 
@@ -29,7 +29,7 @@ GeoIP2::Model::Domain - Model class for the GeoIP2 Domain database
 
 =head1 VERSION
 
-version 2.001001
+version 2.001002
 
 =head1 SYNOPSIS
 
