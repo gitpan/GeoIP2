@@ -2,7 +2,7 @@ do { my $x = {
        'configure' => {
                         'requires' => {
                                         'ExtUtils::MakeMaker' => '0',
-                                        'perl' => '5.008'
+                                        'perl' => '5.010'
                                       }
                       },
        'develop' => {
@@ -41,7 +41,7 @@ do { my $x = {
                                       'Try::Tiny' => '0',
                                       'URI' => '0',
                                       'lib' => '0',
-                                      'perl' => '5.008',
+                                      'perl' => '5.010',
                                       'strict' => '0',
                                       'warnings' => '0'
                                     }
@@ -61,7 +61,7 @@ do { my $x = {
                                    'Test::Fatal' => '0',
                                    'Test::More' => '0.88',
                                    'base' => '0',
-                                   'perl' => '5.008',
+                                   'perl' => '5.010',
                                    'utf8' => '0'
                                  }
                  }

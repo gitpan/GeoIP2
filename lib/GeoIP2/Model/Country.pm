@@ -1,5 +1,5 @@
 package GeoIP2::Model::Country;
-$GeoIP2::Model::Country::VERSION = '2.001000';
+$GeoIP2::Model::Country::VERSION = '2.001001';
 use strict;
 use warnings;
 
@@ -27,7 +27,7 @@ GeoIP2::Model::Country - Model class for the GeoIP2 Precision: Country and GeoIP
 
 =head1 VERSION
 
-version 2.001000
+version 2.001001
 
 =head1 SYNOPSIS
 

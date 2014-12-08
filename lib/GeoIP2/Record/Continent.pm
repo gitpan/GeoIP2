@@ -1,5 +1,5 @@
 package GeoIP2::Record::Continent;
-$GeoIP2::Record::Continent::VERSION = '2.001000';
+$GeoIP2::Record::Continent::VERSION = '2.001001';
 use strict;
 use warnings;
 
@@ -35,7 +35,7 @@ GeoIP2::Record::Continent - Contains data for the continent record associated wi
 
 =head1 VERSION
 
-version 2.001000
+version 2.001001
 
 =head1 SYNOPSIS
 

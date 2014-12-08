@@ -1,5 +1,5 @@
 package GeoIP2::Record::MaxMind;
-$GeoIP2::Record::MaxMind::VERSION = '2.001000';
+$GeoIP2::Record::MaxMind::VERSION = '2.001001';
 use strict;
 use warnings;
 
@@ -26,7 +26,7 @@ GeoIP2::Record::MaxMind - Contains data for the maxmind record returned from a w
 
 =head1 VERSION
 
-version 2.001000
+version 2.001001
 
 =head1 SYNOPSIS
 

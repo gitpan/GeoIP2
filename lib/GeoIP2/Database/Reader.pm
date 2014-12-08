@@ -1,5 +1,5 @@
 package GeoIP2::Database::Reader;
-$GeoIP2::Database::Reader::VERSION = '2.001000';
+$GeoIP2::Database::Reader::VERSION = '2.001001';
 use strict;
 use warnings;
 
@@ -171,7 +171,7 @@ GeoIP2::Database::Reader - Perl API for GeoIP2 databases
 
 =head1 VERSION
 
-version 2.001000
+version 2.001001
 
 =head1 SYNOPSIS
 
@@ -184,9 +184,9 @@ version 2.001000
       locales => [ 'en', 'de', ]
   );
 
-  my $insights = $reader->insights( ip => '24.24.24.24' );
-  my $country = $insights->country();
-  say $country->is_code();
+  my $city = $reader->city( ip => '24.24.24.24' );
+  my $country = $city->country();
+  say $country->iso_code();
 
 =head1 DESCRIPTION
 
